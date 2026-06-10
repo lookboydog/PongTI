@@ -1,0 +1,67 @@
+@import "tailwindcss";
+
+/* 认证表单毛玻璃拟态面板 */
+.glass-card-dark {
+  background: rgba(10, 15, 30, 0.72);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 20px 48px rgba(0, 0, 0, 0.5);
+}
+
+.glass-card-light {
+  background: rgba(255, 255, 255, 0.45);
+  backdrop-filter: blur(20px) saturate(130%);
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  box-shadow: 0 16px 36px rgba(104, 94, 49, 0.06);
+}
+
+/* 输入框聚焦发光 */
+.cyan-glow:focus-within {
+  border-color: rgba(149, 213, 167, 0.8) !important;
+  box-shadow: 0 0 14px rgba(149, 213, 167, 0.3) !important;
+}
+
+.gold-glow:focus-within {
+  border-color: rgba(104, 94, 49, 0.5) !important;
+  box-shadow: 0 0 14px rgba(241, 227, 169, 0.4) !important;
+}
+
+/* 按钮呼吸发光 */
+.moon-glow {
+  box-shadow: 0 0 18px rgba(126, 153, 211, 0.35);
+}
+
+.divine-glow {
+  box-shadow: 0 0 18px rgba(241, 227, 169, 0.45);
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fadeIn {
+  animation: fadeIn 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.material-symbols-outlined {
+  font-variation-settings:
+    'FILL' 0,
+    'wght' 400,
+    'GRAD' 0,
+    'opsz' 24;
+}
+
+.font-manrope {
+  font-family: 'Manrope', sans-serif;
+}
+
+.font-playfair {
+  font-family: 'Playfair Display', serif;
+}

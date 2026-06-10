@@ -1,0 +1,27 @@
+name = "innerspectrum-api"
+main = "src/index.ts"
+compatibility_date = "2026-06-07"
+
+# 本地开发时 CORS 允许所有来源；生产可在 Cloudflare Dashboard 或下方 vars 中指定
+
+[vars]
+CORS_ORIGIN = "PongTI.lookboy-dog.com"
+JWT_SECRET = "Inner_Sp4546"
+EMAIL_FROM = "verify@noreply.lookboy-dog.com"
+
+# 邮件服务（Resend）：生产环境请用 wrangler secret put RESEND_API_KEY
+# RESEND_API_KEY = "re_6"
+# EMAIL_FROM = "noreply@yourdomain.com"
+
+[[d1_databases]]
+binding = "DB"
+database_name = "innerspectrum_db"
+database_id = "628b63d4-439b-4336-b9ae-9cda02e4983d"
+
+
+# 本地 D1 持久化（wrangler dev 时使用）
+# [[d1_databases]]
+# binding = "DB"
+# database_name = "innerspectrum_db"
+# database_id = "local"
+# preview_database_id = "local"

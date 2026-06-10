@@ -1,0 +1,16 @@
+PRAGMA defer_foreign_keys=TRUE;
+INSERT INTO "users" ("id","email","name","password_hash","nickname","avatar_seed","created_at") VALUES(1,'3434384303@qq.com','王大饼','a93c5f46ba077ec2200a43dae1c64408bebe155386a28a8890b2974f7aaf903c','王大饼','王大饼','2026-06-09 06:59:01');
+INSERT INTO "users" ("id","email","name","password_hash","nickname","avatar_seed","created_at") VALUES(2,NULL,NULL,NULL,'匿名旅人','匿名旅','2026-06-09 13:06:22');
+INSERT INTO "users" ("id","email","name","password_hash","nickname","avatar_seed","created_at") VALUES(3,'3077839512@qq.com','哇嘎','2c52b5ed9c38788d2eb062812db07d5f4854f49ac54369c35ac35c235ce42873','哇嘎',NULL,'2026-06-10 13:58:44');
+INSERT INTO "test_records" ("id","user_id","mbti","score_e","score_i","score_s","score_n","score_t","score_f","score_j","score_p","created_at") VALUES('record-1780988376812',1,'INTP',20,80,20,80,80,20,0,100,'2026-06-09 06:59:36');
+INSERT INTO "test_records" ("id","user_id","mbti","score_e","score_i","score_s","score_n","score_t","score_f","score_j","score_p","created_at") VALUES('record-1781010382145',2,'INTP',0,100,0,100,100,0,0,100,'2026-06-09 13:06:22');
+INSERT INTO "comments" ("id","author","avatar_seed","mbti_tag","content","likes","stars","timestamp") VALUES('comment-1780988448886','王大饼','王大饼','INTP','终于把这个邮箱配置的二级域名搞好了，下午上完课，晚上再微调下就可以上线了',2,0,'2026-06-09 07:00');
+INSERT INTO "comments" ("id","author","avatar_seed","mbti_tag","content","likes","stars","timestamp") VALUES('comment-1781100024003','哇嘎','哇嘎',NULL,'本地测试成功，又完善了一些东西，上传github中',0,0,'2026-06-10 14:00');
+INSERT INTO "comment_replies" ("id","comment_id","author","mbti_tag","content","likes","timestamp") VALUES('reply-1780988547051','comment-1780988448886','王大饼','INTP','联动活动搞到现在我也是服了，其他社团估计都换完届了吧(哭哭)，还要买点小礼品，换届……头都大了',1,'2026-06-09 07:02');
+INSERT INTO "email_verification_codes" ("id","email","code","expires_at","used","created_at") VALUES(19,'3434384303@qq.com','258375','2026-06-09T07:07:06.504Z',1,'2026-06-09 06:57:06');
+INSERT INTO "email_verification_codes" ("id","email","code","expires_at","used","created_at") VALUES(20,'3434384303@qq.com','699689','2026-06-09T07:07:14.888Z',1,'2026-06-09 06:57:14');
+INSERT INTO "email_verification_codes" ("id","email","code","expires_at","used","created_at") VALUES(21,'3434384303@qq.com','376885','2026-06-09T07:07:34.734Z',1,'2026-06-09 06:57:34');
+INSERT INTO "email_verification_codes" ("id","email","code","expires_at","used","created_at") VALUES(22,'3434384303@qq.com','192909','2026-06-09T07:08:06.048Z',1,'2026-06-09 06:58:06');
+INSERT INTO "email_verification_codes" ("id","email","code","expires_at","used","created_at") VALUES(23,'3077839512@qq.com','338760','2026-06-10T14:08:01.598Z',1,'2026-06-10 13:58:01');
+INSERT INTO "sqlite_sequence" ("name","seq") VALUES('email_verification_codes',23);
+INSERT INTO "sqlite_sequence" ("name","seq") VALUES('users',3);

@@ -1,0 +1,4 @@
+# 后端忽略规则
+backend/.wrangler/
+backend/node_modules/
+backend/*.sqlite
