@@ -34,9 +34,9 @@ export default function App() {
   useEffect(() => {
     localStorage.setItem('inner_spectrum_theme', theme);
     if (theme === "light") {
-      document.body.style.backgroundColor = "#0a0b1e";
-    } else {
       document.body.style.backgroundColor = "#faf8f5";
+    } else {
+      document.body.style.backgroundColor = "#0a0b1e";
     }
   }, [theme]);
 
