@@ -19,7 +19,7 @@ export default function App() {
   // Read theme from localStorage or default to 'dark' for Cosmic Midnight Nebula vibe
   const [theme, setTheme] = useState<ThemeMode>(() => {
     const saved = localStorage.getItem('inner_spectrum_theme');
-    return (saved as ThemeMode) || 'dark';
+    return (saved as ThemeMode) || 'light';
   });
 
   const [activeView, setActiveView] = useState<ViewType>('home');
