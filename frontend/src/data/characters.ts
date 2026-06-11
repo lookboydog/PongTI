@@ -38,7 +38,7 @@ export const CHARACTER_DATA: CharacterCard[] = [
     title: "小火花守护者",
     description:
       "暮光闪闪的忠实助手，虽然年幼但责任感极强。他热心肠、爱收藏（尤其喜欢闪闪发光的宝石），有时急性子会让他过度担心，比如在《巨龙之谜》中差点被贪欲吞噬，但最终凭借对朋友的忠诚克服了心魔。",
-    avatar: "/穗龙.png",
+    avatar: "/穗龙.webp",
     traits: ["忠诚", "热心肠", "急性子", "爱收藏"],
     stats: { E: 68, I: 32, S: 56, N: 44, T: 40, F: 60, J: 74, P: 26 },
     bestPartners: ["暮光闪闪", "萍琪派"],
@@ -55,7 +55,7 @@ export const CHARACTER_DATA: CharacterCard[] = [
     title: "友谊魔法公主",
     description:
       "对知识渴求到极致的独角兽，擅长用战略规划解决一切问题。她自幼考入塞拉斯蒂娅天才学院，完美主义让她连列清单都要按字母排序。虽然内向，但为了友谊和责任会主动社交（如主持庆典、指导学员），只是事后需要独处充电。",
-    avatar: "/紫悦.png",
+    avatar: "/紫悦.webp",
     traits: ["学术狂人", "完美主义", "策略家", "责任心超强"],
     stats: { E: 42, I: 58, S: 18, N: 82, T: 84, F: 16, J: 94, P: 6 },
     bestPartners: ["萍琪派", "穗龙"],
@@ -76,7 +76,7 @@ export const CHARACTER_DATA: CharacterCard[] = [
     title: "欢笑元素与派对策展人",
     description:
       "打破第四面墙的快乐源泉，用无穷的创意把任何事变成派对。她的“萍琪感应”能预知未来，但她也学会在《萍琪派与严肃时刻》中有计划地举办惊喜派对——并非完全无序，而是灵感驱动下的即兴组织。",
-    avatar: "/碧琪.png",
+    avatar: "/碧琪.webp",
     traits: ["超能量", "创意无限", "直觉感知他人情绪", "偶尔疯癫"],
     stats: { E: 96, I: 4, S: 12, N: 88, T: 22, F: 78, J: 34, P: 66 },
     bestPartners: ["云宝黛西", "芝士三明治"],
@@ -97,7 +97,7 @@ export const CHARACTER_DATA: CharacterCard[] = [
     title: "忠诚元素 & 闪电飞马队队员",
     description:
       "自信、冲动、追求速度与刺激，用实际行动证明自己是天空最酷的飞马。她创造出彩虹音爆，加入闪电飞马队后也学会遵守纪律（比如团队表演的配合），但骨子里仍爱即兴发挥。",
-    avatar: "/云宝.png",
+    avatar: "/云宝.webp",
     traits: ["好胜", "勇敢", "直率", "偶尔傲慢"],
     stats: { E: 84, I: 16, S: 72, N: 28, T: 68, F: 32, J: 44, P: 56 },
     bestPartners: ["萍琪派", "苹果嘉儿"],
@@ -114,7 +114,7 @@ export const CHARACTER_DATA: CharacterCard[] = [
     title: "慷慨元素 & 旋转珍宝时装店主人",
     description:
       "优雅、时尚、慷慨，用美丽装扮他人，也渴望得到认可。她为坎特洛特皇家婚礼设计礼服，对宝石有独特品味。虽然喜欢社交和赞美，但内心善良，常为朋友免费制作衣服。",
-    avatar: "/瑞瑞.png",
+    avatar: "/瑞瑞.webp",
     traits: ["精致", "乐于助人", "善言辞", "偶尔虚荣"],
     stats: { E: 74, I: 26, S: 54, N: 46, T: 38, F: 62, J: 78, P: 22 },
     bestPartners: ["苹果嘉儿", "小蝶"],
@@ -135,7 +135,7 @@ export const CHARACTER_DATA: CharacterCard[] = [
     title: "诚实元素 & 甜苹果园主",
     description:
       "勤劳、务实、重视家族荣誉，用脚踏实地的劳动维系农场与友谊。曾独自前往马哈顿闯荡，最终选择回归家族。她固执到不愿接受帮助（如《苹果嘉儿与疲惫的一天》），但诚实可靠。",
-    avatar: "/苹果嘉儿.png",
+    avatar: "/苹果嘉儿.webp",
     traits: ["可靠", "诚实", "勤劳", "固执"],
     stats: { E: 38, I: 62, S: 78, N: 22, T: 78, F: 22, J: 88, P: 12 },
     bestPartners: ["暮光闪闪", "大麦哥"],
@@ -156,7 +156,7 @@ export const CHARACTER_DATA: CharacterCard[] = [
     title: "善良元素 & 动物庇护所主理人",
     description:
       "温柔害羞，对一切生命充满怜悯，用细心的照顾让动物们安静下来。她能驯服成年龙（《龙的秘密》），内在坚强得惊人。虽然胆小，但在朋友遇到危险时会爆发勇气。",
-    avatar: "/柔柔.png",
+    avatar: "/柔柔.webp",
     traits: ["温柔", "敏感", "尽责", "害羞但内在坚强"],
     stats: { E: 14, I: 86, S: 54, N: 46, T: 28, F: 72, J: 84, P: 16 },
     bestPartners: ["暮光闪闪", "瑞瑞"],
@@ -173,7 +173,7 @@ export const CHARACTER_DATA: CharacterCard[] = [
     title: "太阳公主 & 小马国千年统治者",
     description:
       "智慧、仁慈、善解人意，善于发现小马们的潜力。她封印了梦魇之月，建立坎特洛特皇家学院，却因千年孤独而对妹妹过度愧疚。决策时常迂回（如故意让暮光闪闪自己解决问题），实为启迪。",
-    avatar: "/宇宙公主.png",
+    avatar: "/宇宙公主.webp",
     traits: ["启迪者", "远见", "富有魅力", "隐忍"],
     stats: { E: 78, I: 22, S: 38, N: 62, T: 46, F: 54, J: 84, P: 16 },
     bestPartners: ["露娜公主", "暮光闪闪"],
@@ -190,7 +190,7 @@ export const CHARACTER_DATA: CharacterCard[] = [
     title: "水晶帝国公主（婴儿）",
     description:
       "音韵公主与银甲闪闪的女儿，拥有强大的魔法潜能。虽然还是婴儿，但活泼爱哭，对任何新奇事物都充满好奇，曾因魔法波动被幻形灵盯上。她的未来不可限量。",
-    avatar: "/凝心雪儿.png",
+    avatar: "/凝心雪儿.webp",
     traits: ["活泼", "魔法天赋", "爱哭", "好奇"],
     stats: { E: 68, I: 32, S: 32, N: 68, T: 28, F: 72, J: 38, P: 62 },
     bestPartners: ["音韵公主", "银甲闪闪"],
@@ -207,7 +207,7 @@ export const CHARACTER_DATA: CharacterCard[] = [
     title: "混沌之主",
     description:
       "以混乱为食的古老精魂，喜欢用恶作剧和逻辑悖论戏弄一切。曾被谐律元素石化，在小蝶的感化下暂时改邪归正，甚至成为友谊学校教授。他无法忍受规则，但偶尔会遵守约定（比如答应小蝶不乱搞）。",
-    avatar: "/无序.png",
+    avatar: "/无序.webp",
     traits: ["创意怪诞", "辩论狂", "无拘无束", "狡猾幽默"],
     stats: { E: 88, I: 12, S: 18, N: 82, T: 74, F: 26, J: 16, P: 84 },
     bestPartners: ["萍琪派", "小蝶"],
@@ -228,7 +228,7 @@ export const CHARACTER_DATA: CharacterCard[] = [
     title: "平等村前领袖 & 友谊学校辅导员",
     description:
       "曾因幼年创伤试图抹除可爱标记，建立平等村。被暮光闪闪打败后，她努力改过，用高超的魔法和战略头脑协助击败幻形灵，成为友谊学校的辅导员。她幽默毒舌，但对朋友忠诚。",
-    avatar: "/星光熠熠.png",
+    avatar: "/星光熠熠.webp",
     traits: ["高智商", "野心勃勃", "改革者", "幽默毒舌"],
     stats: { E: 44, I: 56, S: 24, N: 76, T: 84, F: 16, J: 84, P: 16 },
     bestPartners: ["暮光闪闪", "特丽克西"],
@@ -249,7 +249,7 @@ export const CHARACTER_DATA: CharacterCard[] = [
     title: "忠诚的卫兵/男友（依据设定）",
     description:
       "热情忠诚，有时笨拙但心地善良。他作为坎特洛特卫兵，对朋友和职责非常投入，曾在《小马国女孩》中协助击败海妖，并守护水晶帝国。对暮光闪闪有朦胧好感。",
-    avatar: "/疾电阿绅.png",
+    avatar: "/疾电阿绅.webp",
     traits: ["忠诚", "热情", "笨拙", "勇敢"],
     stats: { E: 68, I: 32, S: 54, N: 46, T: 36, F: 64, J: 68, P: 32 },
     bestPartners: ["暮光闪闪"],
@@ -266,7 +266,7 @@ export const CHARACTER_DATA: CharacterCard[] = [
     title: "暴虐烈日化身",
     description:
       "塞拉斯蒂娅的黑暗面，专制独裁。她来自平行宇宙，用铁腕统治，不容任何质疑。烈日射线能焚毁一切，最终被暮光闪闪与塞拉斯蒂娅联手净化。",
-    avatar: "/破灭之阳.png",
+    avatar: "/破灭之阳.webp",
     traits: ["专制", "高效", "残忍", "不容忤逆"],
     stats: { E: 86, I: 14, S: 68, N: 32, T: 90, F: 10, J: 96, P: 4 },
     bestPartners: ["梦魇之月"],
@@ -283,7 +283,7 @@ export const CHARACTER_DATA: CharacterCard[] = [
     title: "月亮公主 & 梦境守护者",
     description:
       "夜之君主，能潜入小马们的梦境。她曾因千年孤寂变身梦魇之月，被姐姐放逐月球。回归后她自卑而忧郁，但内心充满共情，尤其关爱受噩梦困扰的小马。",
-    avatar: "/月亮公主.png",
+    avatar: "/月亮公主.webp",
     traits: ["深沉", "共情", "理想主义", "忧郁"],
     stats: { E: 38, I: 62, S: 28, N: 72, T: 44, F: 56, J: 64, P: 36 },
     bestPartners: ["塞拉斯蒂娅", "小蝶"],
@@ -300,7 +300,7 @@ export const CHARACTER_DATA: CharacterCard[] = [
     title: "永恒黑夜女王",
     description:
       "露娜被嫉妒与孤独腐蚀后的黑暗形态。她渴望永恒黑夜，战略冷酷，曾使用永夜诅咒让整个小马国陷入恐惧。最终被谐律元素净化。",
-    avatar: "/梦魇之月.png",
+    avatar: "/梦魇之月.webp",
     traits: ["野心勃勃", "报复心强", "战略家", "冷酷"],
     stats: { E: 82, I: 18, S: 34, N: 66, T: 86, F: 14, J: 90, P: 10 },
     bestPartners: ["破灭之阳"],
@@ -317,7 +317,7 @@ export const CHARACTER_DATA: CharacterCard[] = [
     title: "水晶爱心守护者",
     description:
       "温柔且富有感染力，她嫁给了银甲闪闪，成为水晶帝国的共同统治者。她能激活水晶爱心，抵御幻形灵。过度信任他人曾让她陷入危险，但她的无私奉献最终拯救了帝国。",
-    avatar: "/音韵公主.png",
+    avatar: "/音韵公主.webp",
     traits: ["温暖", "领导力", "无私奉献", "善解人意"],
     stats: { E: 76, I: 24, S: 44, N: 56, T: 28, F: 72, J: 78, P: 22 },
     bestPartners: ["银甲闪闪", "暮光闪闪"],
@@ -334,7 +334,7 @@ export const CHARACTER_DATA: CharacterCard[] = [
     title: "皇家护卫队长",
     description:
       "纪律严明，对妹妹暮光闪闪保护欲极强。他务实到有些刻板，但忠诚可靠。能施展强大的护盾魔法，曾从幻形灵寄生中拯救坎特洛特。",
-    avatar: "/银甲闪闪.png",
+    avatar: "/银甲闪闪.webp",
     traits: ["严谨", "忠诚", "务实", "不苟言笑"],
     stats: { E: 44, I: 56, S: 78, N: 22, T: 70, F: 30, J: 90, P: 10 },
     bestPartners: ["音韵公主", "暮光闪闪"],
@@ -351,7 +351,7 @@ export const CHARACTER_DATA: CharacterCard[] = [
     title: "上古六贤者之首",
     description:
       "千年前的魔法大师，封印了森布拉大王，创立谐律理论。他孤高神秘，深谋远虑，将灵魂封存于时空缝隙中以守护小马国。",
-    avatar: "/星璇大法师.png",
+    avatar: "/星璇大法师.webp",
     traits: ["智慧", "深谋远虑", "孤高", "神秘"],
     stats: { E: 24, I: 76, S: 18, N: 82, T: 90, F: 10, J: 84, P: 16 },
     bestPartners: ["塞拉斯蒂娅"],
@@ -368,7 +368,7 @@ export const CHARACTER_DATA: CharacterCard[] = [
     title: "可爱军团创始人 & 苹果家族小马",
     description:
       "充满好奇心的小马，与甜心宝宝、醒目露露一起组建可爱军团。她活泼乐观，行动派但冒失，三分钟热度。最终获得可爱标记（苹果盾牌），学会帮助他人。",
-    avatar: "/苹果丽丽.png",
+    avatar: "/苹果丽丽.webp",
     traits: ["活泼", "乐观", "行动派", "冒失"],
     stats: { E: 86, I: 14, S: 68, N: 32, T: 26, F: 74, J: 34, P: 66 },
     bestPartners: ["甜心宝宝", "醒目露露"],
@@ -385,7 +385,7 @@ export const CHARACTER_DATA: CharacterCard[] = [
     title: "未来设计师 & 瑞瑞的妹妹",
     description:
       "喜爱时尚，总想帮姐姐瑞瑞做衣服却经常搞砸（比如把礼服剪歪）。她热心、有艺术感，但过度自信导致失误。逐渐学会独立，最终获得可爱标记（心形针线）。",
-    avatar: "/甜心宝宝.png",
+    avatar: "/甜心宝宝.webp",
     traits: ["热心", "艺术感", "笨拙", "依赖"],
     stats: { E: 72, I: 28, S: 48, N: 52, T: 28, F: 72, J: 58, P: 42 },
     bestPartners: ["瑞瑞", "苹果丽丽"],
@@ -402,7 +402,7 @@ export const CHARACTER_DATA: CharacterCard[] = [
     title: "极限运动爱好者",
     description:
       "孤儿出身，渴望酷炫的可爱标记。她倔强敏感，不善表达，但勇敢独立。曾因没有天赋而自卑，最终接受自己，获得可爱标记（星星与云朵）。",
-    avatar: "/醒目露露.png",
+    avatar: "/醒目露露.webp",
     traits: ["倔强", "敏感", "勇敢", "不善表达"],
     stats: { E: 38, I: 62, S: 64, N: 36, T: 38, F: 62, J: 28, P: 72 },
     bestPartners: ["苹果丽丽", "云宝黛西"],
@@ -419,7 +419,7 @@ export const CHARACTER_DATA: CharacterCard[] = [
     title: "小富婆 & 骄傲女孩",
     description:
       "骄傲自大，重视地位和财富。她曾是可爱军团的霸凌者，后来被感化，成为普通朋友。领导欲强，传统守旧。",
-    avatar: "/珠玉冠冠.png",
+    avatar: "/珠玉冠冠.webp",
     traits: ["傲慢", "领导欲", "传统", "物质"],
     stats: { E: 82, I: 18, S: 74, N: 26, T: 78, F: 22, J: 90, P: 10 },
     bestPartners: ["白银勺勺"],
@@ -436,7 +436,7 @@ export const CHARACTER_DATA: CharacterCard[] = [
     title: "珠玉冠冠的跟班",
     description:
       "跟随珠玉冠冠，但也保留善意。她传统势利，缺乏主见，常模仿珠玉冠冠的行为。后来被教育改正，逐渐学会独立思考。",
-    avatar: "/白银勺勺.png",
+    avatar: "/白银勺勺.webp",
     traits: ["跟随者", "传统", "势利", "偶尔善良"],
     stats: { E: 66, I: 34, S: 68, N: 32, T: 38, F: 62, J: 74, P: 26 },
     bestPartners: ["珠玉冠冠"],
@@ -453,7 +453,7 @@ export const CHARACTER_DATA: CharacterCard[] = [
     title: "慢条斯理的艺术少年",
     description:
       "动作缓慢，但艺术感知力强。他安静友好，喜欢画画和手工。虽然效率低，但他的壁画总能温暖人心。和剪剪是好友。",
-    avatar: "/蜗蜗.png",
+    avatar: "/蜗蜗.webp",
     traits: ["慢", "艺术感", "安静", "友好"],
     stats: { E: 24, I: 76, S: 58, N: 42, T: 28, F: 72, J: 38, P: 62 },
     bestPartners: ["剪剪"],
@@ -470,7 +470,7 @@ export const CHARACTER_DATA: CharacterCard[] = [
     title: "规矩谨慎的优等生",
     description:
       "严格遵守规则，勤奋好学。她是班长，按时完成作业，不苟言笑。缺乏灵活性，但可靠负责。和蜗蜗组成“快慢搭档”。",
-    avatar: "/剪剪.png",
+    avatar: "/剪剪.webp",
     traits: ["规矩", "勤奋", "谨慎", "不苟言笑"],
     stats: { E: 34, I: 66, S: 86, N: 14, T: 64, F: 36, J: 86, P: 14 },
     bestPartners: ["蜗蜗"],
@@ -487,7 +487,7 @@ export const CHARACTER_DATA: CharacterCard[] = [
     title: "苹果家族族长",
     description:
       "坚韧不拔，守护家族传统。她一手建立了甜苹果园，抚养孙辈。虽然顽固，但充满智慧，常用老方法解决新问题。",
-    avatar: "/史密夫婆婆.png",
+    avatar: "/史密夫婆婆.webp",
     traits: ["坚韧", "传统", "节俭", "智慧"],
     stats: { E: 38, I: 62, S: 78, N: 22, T: 70, F: 30, J: 84, P: 16 },
     bestPartners: ["苹果嘉儿"],
@@ -504,7 +504,7 @@ export const CHARACTER_DATA: CharacterCard[] = [
     title: "沉默的巨人",
     description:
       "寡言少语但力大无穷，热爱农场。他务实可靠，不善表达情感，但用行动守护家人。曾赢得马展冠军。",
-    avatar: "/大麦哥.png",
+    avatar: "/大麦哥.webp",
     traits: ["沉默", "务实", "强壮", "可靠"],
     stats: { E: 18, I: 82, S: 74, N: 26, T: 64, F: 36, J: 44, P: 56 },
     bestPartners: ["苹果嘉儿"],
@@ -521,7 +521,7 @@ export const CHARACTER_DATA: CharacterCard[] = [
     title: "沉默的苹果种植者",
     description:
       "喜欢独立工作，不善言辞。他务实、技术流，专注于改进种植方法。社交障碍让他独来独往，但手艺精湛。",
-    avatar: "/布雷本.png",
+    avatar: "/布雷本.webp",
     traits: ["务实", "独立", "沉默", "技术流"],
     stats: { E: 14, I: 86, S: 78, N: 22, T: 70, F: 30, J: 38, P: 62 },
     bestPartners: ["大麦哥"],
@@ -538,7 +538,7 @@ export const CHARACTER_DATA: CharacterCard[] = [
     title: "苹果嘉儿的父亲",
     description:
       "严格负责的家长，传统勤劳。他曾继承农场，以身作则教育子女。有时过于严厉，但内心深爱家人。",
-    avatar: "/布莱特麦托什.png",
+    avatar: "/布莱特麦托什.webp",
     traits: ["严格", "负责", "传统", "勤劳"],
     stats: { E: 64, I: 36, S: 74, N: 26, T: 78, F: 22, J: 90, P: 10 },
     bestPartners: ["梨派"],
@@ -555,7 +555,7 @@ export const CHARACTER_DATA: CharacterCard[] = [
     title: "苹果嘉儿的母亲",
     description:
       "温柔慈爱的母亲，操持家务。她默默支持家庭，勤劳体贴。虽然去世早，但她的温暖一直影响苹果嘉儿。",
-    avatar: "/梨派.png",
+    avatar: "/梨派.webp",
     traits: ["温柔", "慈爱", "顾家", "勤劳"],
     stats: { E: 34, I: 66, S: 58, N: 42, T: 34, F: 66, J: 74, P: 26 },
     bestPartners: ["布莱特"],
@@ -572,7 +572,7 @@ export const CHARACTER_DATA: CharacterCard[] = [
     title: "古怪发明家",
     description:
       "充满创意和奇思妙想的老小马，萍琪派的灵感来源。他热情健忘，发明无数不实用的东西（如能唱歌的烤面包机），但给他人带来快乐。",
-    avatar: "/芝士爷爷.png",
+    avatar: "/芝士爷爷.webp",
     traits: ["古怪", "创意", "热情", "健忘"],
     stats: { E: 78, I: 22, S: 24, N: 76, T: 18, F: 82, J: 28, P: 72 },
     bestPartners: ["萍琪派"],
@@ -589,7 +589,7 @@ export const CHARACTER_DATA: CharacterCard[] = [
     title: "默默奉献的苹果园工",
     description:
       "老实忠诚，从不抱怨。他长期服务甜苹果园，低调谦逊。虽然不引人注目，但他是农场运转的关键。",
-    avatar: "/黄元帅.png",
+    avatar: "/黄元帅.webp",
     traits: ["老实", "忠诚", "勤劳", "低调"],
     stats: { E: 24, I: 76, S: 68, N: 32, T: 38, F: 62, J: 78, P: 22 },
     bestPartners: ["史密夫婆婆"],
@@ -606,7 +606,7 @@ export const CHARACTER_DATA: CharacterCard[] = [
     title: "热心肠的邻居",
     description:
       "热情好客，乐于助人。她住在甜苹果园附近，经常组织社区活动，比如丰收节聚餐。有点好管闲事，但心地善良。",
-    avatar: "/瑰香苹果.png",
+    avatar: "/瑰香苹果.webp",
     traits: ["热情", "好客", "邻里和睦", "勤劳"],
     stats: { E: 74, I: 26, S: 54, N: 46, T: 30, F: 70, J: 68, P: 32 },
     bestPartners: ["苹果嘉儿"],
@@ -623,7 +623,7 @@ export const CHARACTER_DATA: CharacterCard[] = [
     title: "石头爱好者",
     description:
       "冷静务实，喜爱收集石头。她专注到有些孤僻，但对自己的收藏充满热情。曾发现稀有矿石，让家族采石场名声大噪。",
-    avatar: "/石青派.png",
+    avatar: "/石青派.webp",
     traits: ["冷静", "务实", "孤僻", "专注"],
     stats: { E: 18, I: 82, S: 84, N: 16, T: 70, F: 30, J: 38, P: 62 },
     bestPartners: ["萍琪派"],
@@ -640,7 +640,7 @@ export const CHARACTER_DATA: CharacterCard[] = [
     title: "理性分析者",
     description:
       "超然逻辑，对社交兴趣不大。她喜欢推导数学定理，情感冷漠但并非恶意。和姐姐灰琪一样独来独往，偶尔会说出惊人的哲理。",
-    avatar: "/石灰派.png",
+    avatar: "/石灰派.webp",
     traits: ["理性", "超然", "分析", "寡言"],
     stats: { E: 14, I: 86, S: 18, N: 82, T: 90, F: 10, J: 34, P: 66 },
     bestPartners: ["灰琪"],
@@ -657,7 +657,7 @@ export const CHARACTER_DATA: CharacterCard[] = [
     title: "极度害羞的小马",
     description:
       "温和顺从，几乎不说话。她比姐姐石灰派还要内向，常常躲在角落里。偶尔开口时声音细如蚊蚋，但很体贴。",
-    avatar: "/大理石派.png",
+    avatar: "/大理石派.webp",
     traits: ["害羞", "温和", "顺从", "体贴"],
     stats: { E: 10, I: 90, S: 64, N: 36, T: 28, F: 72, J: 68, P: 32 },
     bestPartners: ["石灰派"],
@@ -674,7 +674,7 @@ export const CHARACTER_DATA: CharacterCard[] = [
     title: "萍琪派的父亲",
     description:
       "强硬实干，经营家族采石场。他传统严肃，不擅表达关爱，但默默支持女儿们。和妻子云雾石英形成对比。",
-    avatar: "/火岩派.png",
+    avatar: "/火岩派.webp",
     traits: ["强硬", "实干", "传统", "严肃"],
     stats: { E: 68, I: 32, S: 78, N: 22, T: 84, F: 16, J: 90, P: 10 },
     bestPartners: ["云雾石英"],
@@ -691,7 +691,7 @@ export const CHARACTER_DATA: CharacterCard[] = [
     title: "萍琪派的母亲",
     description:
       "慈爱包容，家庭组织者。她热情好客，把三个性格迥异的女儿凝聚在一起。总是操心家里的大小事务。",
-    avatar: "/云雾石英.png",
+    avatar: "/云雾石英.webp",
     traits: ["慈爱", "包容", "热情", "组织力"],
     stats: { E: 70, I: 30, S: 54, N: 46, T: 28, F: 72, J: 74, P: 26 },
     bestPartners: ["火岩派"],
@@ -708,7 +708,7 @@ export const CHARACTER_DATA: CharacterCard[] = [
     title: "暮光闪闪的父亲",
     description:
       "学术严谨，规律生活。他是大学教授，对女儿要求严格但也支持她的学业。内敛沉稳，喜欢阅读历史典籍。",
-    avatar: "/夜光.png",
+    avatar: "/夜光.webp",
     traits: ["学术", "严谨", "规律", "内敛"],
     stats: { E: 34, I: 66, S: 74, N: 26, T: 70, F: 30, J: 84, P: 16 },
     bestPartners: ["薄暮微光"],
@@ -725,7 +725,7 @@ export const CHARACTER_DATA: CharacterCard[] = [
     title: "暮光闪闪的母亲",
     description:
       "细腻关怀，支持家庭。她温柔体贴，在暮光闪闪成长中给予无限鼓励。善于烹饪和园艺，总能把家打理得温馨舒适。",
-    avatar: "/薄暮微光.png",
+    avatar: "/薄暮微光.webp",
     traits: ["细腻", "关怀", "支持", "温柔"],
     stats: { E: 38, I: 62, S: 58, N: 42, T: 30, F: 70, J: 68, P: 32 },
     bestPartners: ["夜光"],
@@ -742,7 +742,7 @@ export const CHARACTER_DATA: CharacterCard[] = [
     title: "沉稳守纪的骆驼",
     description:
       "尽职尽责，遵守规则。他是友谊学院的优秀学员，沉稳寡言，和活泼的约娜形成互补。毕业时获得最佳纪律奖。",
-    avatar: "/桑德.png",
+    avatar: "/桑德.webp",
     traits: ["沉稳", "守纪", "尽职", "寡言"],
     stats: { E: 34, I: 66, S: 78, N: 22, T: 70, F: 30, J: 84, P: 16 },
     bestPartners: ["约娜"],
@@ -759,7 +759,7 @@ export const CHARACTER_DATA: CharacterCard[] = [
     title: "热情洋溢的牦牛",
     description:
       "渴望友谊，乐观开朗。她从牦牛国来到友谊学院，虽然有时过于热情吓到人，但真诚善良。和桑德成为好朋友。",
-    avatar: "/约娜.png",
+    avatar: "/约娜.webp",
     traits: ["热情", "乐观", "好奇", "冲动"],
     stats: { E: 84, I: 16, S: 34, N: 66, T: 24, F: 76, J: 28, P: 72 },
     bestPartners: ["桑德", "加鲁斯"],
@@ -776,7 +776,7 @@ export const CHARACTER_DATA: CharacterCard[] = [
     title: "愤世嫉俗的鹰狮兽",
     description:
       "内向思辨，有点冷漠。他曾因身份认同而孤僻，在友谊学院逐渐敞开心扉。聪明毒舌，但内心渴望友谊。",
-    avatar: "/加鲁斯.png",
+    avatar: "/加鲁斯.webp",
     traits: ["思辨", "冷漠", "聪明", "毒舌"],
     stats: { E: 18, I: 82, S: 24, N: 76, T: 84, F: 16, J: 34, P: 66 },
     bestPartners: ["桑德"],
@@ -793,7 +793,7 @@ export const CHARACTER_DATA: CharacterCard[] = [
     title: "忠诚的变色龙",
     description:
       "寻求归属，忠诚顺从。他是幻形灵的变种，能模仿他人但渴望被接纳。敏感依赖，在加鲁斯的帮助下找到自我。",
-    avatar: "/奥瑟.png",
+    avatar: "/奥瑟.webp",
     traits: ["忠诚", "顺从", "敏感", "依赖"],
     stats: { E: 28, I: 72, S: 58, N: 42, T: 34, F: 66, J: 68, P: 32 },
     bestPartners: ["加鲁斯"],
@@ -810,7 +810,7 @@ export const CHARACTER_DATA: CharacterCard[] = [
     title: "顽皮的恶作剧者",
     description:
       "活泼好动，喜欢整蛊。他是恶作剧高手，和银溪搭档玩遍学院。冲动但讲义气，渐渐学会适可而止。",
-    avatar: "/斯摩尔.png",
+    avatar: "/斯摩尔.webp",
     traits: ["顽皮", "好动", "幽默", "冲动"],
     stats: { E: 86, I: 14, S: 68, N: 32, T: 64, F: 36, J: 28, P: 72 },
     bestPartners: ["银溪"],
@@ -827,7 +827,7 @@ export const CHARACTER_DATA: CharacterCard[] = [
     title: "活泼好动的水獭",
     description:
       "好奇心强，热爱社交。她从水下城市来到小马谷，对一切陆地事物充满好奇。活泼友善，注意力容易分散。",
-    avatar: "/银溪.png",
+    avatar: "/银溪.webp",
     traits: ["活泼", "好奇", "爱玩", "友善"],
     stats: { E: 90, I: 10, S: 64, N: 36, T: 24, F: 76, J: 24, P: 76 },
     bestPartners: ["斯摩尔"],
@@ -844,7 +844,7 @@ export const CHARACTER_DATA: CharacterCard[] = [
     title: "小马谷学校教师",
     description:
       "关爱学生，耐心教导。她教过可爱军团和无数小马，总是用温和的方式解决问题。偶尔会偏袒好学生，但本质公正。",
-    avatar: "/采妮.png",
+    avatar: "/采妮.webp",
     traits: ["关爱", "耐心", "负责", "传统"],
     stats: { E: 68, I: 32, S: 58, N: 42, T: 34, F: 66, J: 78, P: 22 },
     bestPartners: ["马市长"],
@@ -861,7 +861,7 @@ export const CHARACTER_DATA: CharacterCard[] = [
     title: "派对策划大师",
     description:
       "幽默机智，擅长即兴表演。他和萍琪派是派对知己，能随时随地创造欢乐。难以安定，但每次出现都能带来惊喜。",
-    avatar: "/芝士三明治.png",
+    avatar: "/芝士三明治.webp",
     traits: ["幽默", "机智", "即兴", "创意"],
     stats: { E: 86, I: 14, S: 28, N: 72, T: 58, F: 42, J: 24, P: 76 },
     bestPartners: ["萍琪派"],
@@ -878,7 +878,7 @@ export const CHARACTER_DATA: CharacterCard[] = [
     title: "古怪的草药师",
     description:
       "智慧古怪，沉迷草药配方。她能调配各种神奇药剂，但说话总是绕弯子，让人摸不着头脑。和暮光闪闪是忘年交。",
-    avatar: "/可拉.png",
+    avatar: "/可拉.webp",
     traits: ["古怪", "智慧", "健忘", "好奇"],
     stats: { E: 24, I: 76, S: 24, N: 76, T: 78, F: 22, J: 28, P: 72 },
     bestPartners: ["暮光闪闪"],
@@ -895,7 +895,7 @@ export const CHARACTER_DATA: CharacterCard[] = [
     title: "小马谷市长",
     description:
       "管理城市，注重秩序。她每天处理各种琐事，虽然有点官僚，但真心为小马谷着想。连任多届，深受市民信任。",
-    avatar: "/马市长.png",
+    avatar: "/马市长.webp",
     traits: ["管理", "秩序", "负责", "官僚"],
     stats: { E: 64, I: 36, S: 74, N: 26, T: 78, F: 22, J: 90, P: 10 },
     bestPartners: ["采妮"],
@@ -912,7 +912,7 @@ export const CHARACTER_DATA: CharacterCard[] = [
     title: "励志演说家",
     description:
       "激情四射，鼓舞他人。他通过演讲帮助自卑的小马找回信心，虽然有时空喊口号，但正能量感染力强。",
-    avatar: "/梅根布鲁.png",
+    avatar: "/梅根布鲁.webp",
     traits: ["激情", "鼓舞", "口才", "乐观"],
     stats: { E: 90, I: 10, S: 34, N: 66, T: 28, F: 72, J: 68, P: 32 },
     bestPartners: ["小蝶"],
@@ -929,7 +929,7 @@ export const CHARACTER_DATA: CharacterCard[] = [
     title: "狡诈商人",
     description:
       "口才流利，喜欢欺诈。他和搭档滑舌专骗老实小马，但每次都被揭穿。自信过度，从不悔改。",
-    avatar: "/油嘴.png",
+    avatar: "/油嘴.webp",
     traits: ["狡诈", "口才", "投机", "自信"],
     stats: { E: 86, I: 14, S: 68, N: 32, T: 76, F: 24, J: 34, P: 66 },
     bestPartners: ["滑舌"],
@@ -946,7 +946,7 @@ export const CHARACTER_DATA: CharacterCard[] = [
     title: "油嘴的搭档",
     description:
       "双簧表演，油嘴滑舌。他配合油嘴行骗，擅长即兴发挥。虽然狡猾，但偶尔也会良心发现。",
-    avatar: "/滑舌.png",
+    avatar: "/滑舌.webp",
     traits: ["狡猾", "表演型", "合作", "投机"],
     stats: { E: 82, I: 18, S: 68, N: 32, T: 70, F: 30, J: 28, P: 72 },
     bestPartners: ["油嘴"],
@@ -963,7 +963,7 @@ export const CHARACTER_DATA: CharacterCard[] = [
     title: "传奇冒险家",
     description:
       "勇猛果敢，经历无数危险。她写过畅销冒险小说，但总爱夸大其词。现实中的她其实有点胆怯，但在暮光闪闪的鼓励下成长为真正的英雄。",
-    avatar: "/无畏天马.png",
+    avatar: "/无畏天马.webp",
     traits: ["勇敢", "冒险", "自信", "炫耀"],
     stats: { E: 82, I: 18, S: 64, N: 36, T: 70, F: 30, J: 38, P: 62 },
     bestPartners: ["暮光闪闪"],
@@ -980,7 +980,7 @@ export const CHARACTER_DATA: CharacterCard[] = [
     title: "奇想收藏家",
     description:
       "热衷传说，充满奇思。他收集无数文物，轻信各种谣言，但热情感染了很多人。和无畏天马是搭档。",
-    avatar: "/霍迪格斯.png",
+    avatar: "/霍迪格斯.webp",
     traits: ["奇想", "热情", "收藏", "健谈"],
     stats: { E: 76, I: 24, S: 28, N: 72, T: 24, F: 76, J: 24, P: 76 },
     bestPartners: ["无畏天马"],
@@ -997,7 +997,7 @@ export const CHARACTER_DATA: CharacterCard[] = [
     title: "烘焙甜心",
     description:
       "善良爱分享，擅长烘焙。她做的草莓派全镇闻名，性格害羞但乐于助人。不擅长拒绝别人的请求。",
-    avatar: "/草莓酥饼.png",
+    avatar: "/草莓酥饼.webp",
     traits: ["善良", "爱分享", "勤劳", "害羞"],
     stats: { E: 44, I: 56, S: 64, N: 36, T: 28, F: 72, J: 74, P: 26 },
     bestPartners: ["小蝶"],
@@ -1014,7 +1014,7 @@ export const CHARACTER_DATA: CharacterCard[] = [
     title: "天真迷糊的小马",
     description:
       "天真烂漫，偶尔犯糊涂。她像月亮一样温柔，但注意力不集中，经常迷路。心地善良，朋友众多。",
-    avatar: "/月野兔.png",
+    avatar: "/月野兔.webp",
     traits: ["天真", "活力", "迷糊", "友善"],
     stats: { E: 82, I: 18, S: 34, N: 66, T: 18, F: 82, J: 24, P: 76 },
     bestPartners: ["萍琪派"],
@@ -1031,7 +1031,7 @@ export const CHARACTER_DATA: CharacterCard[] = [
     title: "邮差小呆",
     description:
       "迷糊善良，经常送错信。她的眼睛有点对眼，方向感极差，但从不放弃。和博士是好友。",
-    avatar: "/小呆.png",
+    avatar: "/小呆.webp",
     traits: ["迷糊", "善良", "笨拙", "随性"],
     stats: { E: 28, I: 72, S: 58, N: 42, T: 24, F: 76, J: 24, P: 76 },
     bestPartners: ["博士"],
@@ -1048,7 +1048,7 @@ export const CHARACTER_DATA: CharacterCard[] = [
     title: "节奏大师",
     description:
       "热爱音乐，派对灵魂。她是小马谷最受欢迎的DJ，永远戴着墨镜。随和友善，音乐品味独特。",
-    avatar: "/DJ3号.png",
+    avatar: "/DJ3号.webp",
     traits: ["音乐狂热", "派对", "外向", "随和"],
     stats: { E: 96, I: 4, S: 58, N: 42, T: 18, F: 82, J: 18, P: 82 },
     bestPartners: ["萍琪派"],
@@ -1065,7 +1065,7 @@ export const CHARACTER_DATA: CharacterCard[] = [
     title: "学霸少年",
     description:
       "认真严肃，规则至上。他是坎特洛特学院的最优生，学习时不喜欢被打扰。不知变通，但自律性强。",
-    avatar: "/日光耀耀.png",
+    avatar: "/日光耀耀.webp",
     traits: ["认真", "学霸", "规则", "自律"],
     stats: { E: 38, I: 62, S: 86, N: 14, T: 76, F: 24, J: 90, P: 10 },
     bestPartners: ["暮光闪闪"],
@@ -1082,7 +1082,7 @@ export const CHARACTER_DATA: CharacterCard[] = [
     title: "神秘博士",
     description:
       "时空狂人，热衷科学。他有一台蓝色电话亭时间机器，沉迷理论和实验。古怪但友善，和小呆是好朋友。",
-    avatar: "/博士.png",
+    avatar: "/博士.webp",
     traits: ["时空", "狂人", "逻辑", "古怪"],
     stats: { E: 18, I: 82, S: 14, N: 86, T: 92, F: 8, J: 24, P: 76 },
     bestPartners: ["小呆"],
@@ -1099,7 +1099,7 @@ export const CHARACTER_DATA: CharacterCard[] = [
     title: "推销达人",
     description:
       "自信张扬，擅长推销。她开了一家美容沙龙，总能说服顾客购买产品。表演欲强，有时过度做作。",
-    avatar: "/美照菲尼莎.png",
+    avatar: "/美照菲尼莎.webp",
     traits: ["自信", "张扬", "推销", "表演"],
     stats: { E: 90, I: 10, S: 68, N: 32, T: 66, F: 34, J: 86, P: 14 },
     bestPartners: ["可可"],
@@ -1116,7 +1116,7 @@ export const CHARACTER_DATA: CharacterCard[] = [
     title: "梦想家",
     description:
       "热爱人类传说，爱幻想。她坚信人类存在，经常对着天空发呆。浪漫内向，和糖糖是形影不离的好友。",
-    avatar: "/天琴心弦.png",
+    avatar: "/天琴心弦.webp",
     traits: ["梦想家", "浪漫", "内向", "爱幻想"],
     stats: { E: 28, I: 72, S: 24, N: 76, T: 28, F: 72, J: 38, P: 62 },
     bestPartners: ["糖糖"],
@@ -1133,7 +1133,7 @@ export const CHARACTER_DATA: CharacterCard[] = [
     title: "天琴的挚友",
     description:
       "安静甜心，陪伴型。她总是默默陪在天琴身边，温柔顺从。缺乏主见，但忠诚可靠。",
-    avatar: "/糖糖.png",
+    avatar: "/糖糖.webp",
     traits: ["安静", "甜心", "陪伴", "顺从"],
     stats: { E: 24, I: 76, S: 58, N: 42, T: 34, F: 66, J: 68, P: 32 },
     bestPartners: ["天琴心弦"],
@@ -1150,7 +1150,7 @@ export const CHARACTER_DATA: CharacterCard[] = [
     title: "严谨音乐家",
     description:
       "传统大提琴手，追求完美。她是坎特洛特交响乐团的首席，抗拒创新。和DJ3号形成有趣的反差。",
-    avatar: "/奥塔维亚.png",
+    avatar: "/奥塔维亚.webp",
     traits: ["严谨", "传统", "音乐", "完美主义"],
     stats: { E: 28, I: 72, S: 74, N: 26, T: 66, F: 34, J: 86, P: 14 },
     bestPartners: ["DJ3号"],
@@ -1167,7 +1167,7 @@ export const CHARACTER_DATA: CharacterCard[] = [
     title: "腼腆艺术家",
     description:
       "对色彩敏感，害羞内敛。她善于画壁画，但社交恐惧。和瑞瑞是朋友，瑞瑞常鼓励她展现才华。",
-    avatar: "/宝蓝莎莎.png",
+    avatar: "/宝蓝莎莎.webp",
     traits: ["腼腆", "艺术", "敏感", "内敛"],
     stats: { E: 24, I: 76, S: 68, N: 32, T: 28, F: 72, J: 34, P: 66 },
     bestPartners: ["瑞瑞"],
@@ -1184,7 +1184,7 @@ export const CHARACTER_DATA: CharacterCard[] = [
     title: "温柔裁缝",
     description:
       "讨好型人格，温柔善良。她是瑞瑞的助手，总是不计回报地帮助别人。不会拒绝任何请求，有时会累垮自己。",
-    avatar: "/可可・帕梅尔.png",
+    avatar: "/可可・帕梅尔.webp",
     traits: ["温柔", "讨好", "善良", "勤劳"],
     stats: { E: 34, I: 66, S: 58, N: 42, T: 28, F: 72, J: 68, P: 32 },
     bestPartners: ["瑞瑞"],
@@ -1201,7 +1201,7 @@ export const CHARACTER_DATA: CharacterCard[] = [
     title: "伟大魔术师",
     description:
       "浮夸表演，渴望关注。她自称“伟大而全能的特丽克西”，实际上魔法平平。被星光熠熠救赎后成为好友，不再过度炫耀。",
-    avatar: "/特丽克西.png",
+    avatar: "/特丽克西.webp",
     traits: ["浮夸", "表演", "自信", "虚荣"],
     stats: { E: 96, I: 4, S: 44, N: 56, T: 34, F: 66, J: 18, P: 82 },
     bestPartners: ["星光熠熠"],
@@ -1218,7 +1218,7 @@ export const CHARACTER_DATA: CharacterCard[] = [
     title: "运动恶霸",
     description:
       "好斗冲动，喜欢欺负弱小。他曾经是云宝黛西的对手，被云宝打败后收敛了一些。欺软怕硬，但体育能力强。",
-    avatar: "/满贯.png",
+    avatar: "/满贯.webp",
     traits: ["好斗", "冲动", "恶霸", "自信"],
     stats: { E: 86, I: 14, S: 76, N: 24, T: 70, F: 30, J: 34, P: 66 },
     bestPartners: ["云宝黛西（曾经）"],
@@ -1235,7 +1235,7 @@ export const CHARACTER_DATA: CharacterCard[] = [
     title: "温柔护士",
     description:
       "热心肠，关爱病人。她在小马谷医院工作，总是耐心照顾每一位患者。工作狂，经常加班到深夜。",
-    avatar: "/红心护士.png",
+    avatar: "/红心护士.webp",
     traits: ["热心", "关爱", "耐心", "负责"],
     stats: { E: 66, I: 34, S: 58, N: 42, T: 34, F: 66, J: 76, P: 24 },
     bestPartners: ["小蝶"],
@@ -1252,7 +1252,7 @@ export const CHARACTER_DATA: CharacterCard[] = [
     title: "慈祥姨妈",
     description:
       "照顾后辈，慈祥亲切。她是瑞瑞和甜心宝宝的姨妈，抚养她们长大。爱唠叨但心地善良，擅长编织。",
-    avatar: "/霍莉黛姨妈.png",
+    avatar: "/霍莉黛姨妈.webp",
     traits: ["慈祥", "照顾", "亲切", "传统"],
     stats: { E: 38, I: 62, S: 64, N: 36, T: 34, F: 66, J: 74, P: 26 },
     bestPartners: ["瑞瑞"],
@@ -1269,7 +1269,7 @@ export const CHARACTER_DATA: CharacterCard[] = [
     title: "闪电飞马队员",
     description:
       "特技明星，爱炫技。他是闪电飞马队的成员，擅长高难度飞行表演。自信好胜，有时过于自负。",
-    avatar: "/乘风.png",
+    avatar: "/乘风.webp",
     traits: ["炫技", "自信", "好胜", "冲动"],
     stats: { E: 86, I: 14, S: 70, N: 30, T: 64, F: 36, J: 28, P: 72 },
     bestPartners: ["高风"],
@@ -1286,7 +1286,7 @@ export const CHARACTER_DATA: CharacterCard[] = [
     title: "闪电飞马队长",
     description:
       "纪律严明，队长风范。他领导闪电飞马队，对队员要求严格，不苟言笑。虽然严厉，但一切为了团队荣誉。",
-    avatar: "/高风.png",
+    avatar: "/高风.webp",
     traits: ["纪律", "严明", "负责", "权威"],
     stats: { E: 70, I: 30, S: 74, N: 26, T: 80, F: 20, J: 96, P: 4 },
     bestPartners: ["喷火"],
@@ -1303,7 +1303,7 @@ export const CHARACTER_DATA: CharacterCard[] = [
     title: "速度之星",
     description:
       "爆发力强，冲动。他是闪电飞马队的速度担当，刷新过飞行记录。缺乏耐心，但热情直率。",
-    avatar: "/流星.png",
+    avatar: "/流星.webp",
     traits: ["爆发力", "冲动", "好胜", "直率"],
     stats: { E: 82, I: 18, S: 70, N: 30, T: 64, F: 36, J: 28, P: 72 },
     bestPartners: ["乘风"],
@@ -1320,7 +1320,7 @@ export const CHARACTER_DATA: CharacterCard[] = [
     title: "副队长",
     description:
       "严厉负责，铁面无私。她是闪电飞马队的副队长，负责训练新队员。不留情面，但专业能力极强。",
-    avatar: "/喷火.png",
+    avatar: "/喷火.webp",
     traits: ["严厉", "负责", "铁面", "权威"],
     stats: { E: 76, I: 24, S: 78, N: 22, T: 86, F: 14, J: 90, P: 10 },
     bestPartners: ["高风"],
@@ -1337,7 +1337,7 @@ export const CHARACTER_DATA: CharacterCard[] = [
     title: "后起之秀",
     description:
       "活力四射，年轻自信。她是闪电飞马队的新成员，崇拜云宝黛西。好动活泼，经验稍显不足。",
-    avatar: "/迅足.png",
+    avatar: "/迅足.webp",
     traits: ["活力", "年轻", "自信", "好动"],
     stats: { E: 86, I: 14, S: 58, N: 42, T: 28, F: 72, J: 24, P: 76 },
     bestPartners: ["云宝黛西"],
@@ -1354,7 +1354,7 @@ export const CHARACTER_DATA: CharacterCard[] = [
     title: "牦牛王",
     description:
       "暴躁直率，传统威严。他是牦牛国的国王，一开始敌视小马，后来与小马国建交。易怒但重情义。",
-    avatar: "/牦牛王鲁瑟福.png",
+    avatar: "/牦牛王鲁瑟福.webp",
     traits: ["暴躁", "直率", "传统", "威严"],
     stats: { E: 82, I: 18, S: 80, N: 20, T: 86, F: 14, J: 90, P: 10 },
     bestPartners: ["苹果嘉儿"],
@@ -1371,7 +1371,7 @@ export const CHARACTER_DATA: CharacterCard[] = [
     title: "跨族友谊使者",
     description:
       "温柔耐心，促进友谊。她是水马（海马）与陆马之间的桥梁，帮助化解矛盾。温柔体贴，逆来顺受。",
-    avatar: "/海风.png",
+    avatar: "/海风.webp",
     traits: ["温柔", "耐心", "友善", "奉献"],
     stats: { E: 34, I: 66, S: 54, N: 46, T: 28, F: 72, J: 68, P: 32 },
     bestPartners: ["小蝶"],
@@ -1388,7 +1388,7 @@ export const CHARACTER_DATA: CharacterCard[] = [
     title: "乐观水马",
     description:
       "开朗乐观，热爱交流。她是水马一族，首次上岸时充满好奇。健谈热情，和海风是好朋友。",
-    avatar: "/海浪.png",
+    avatar: "/海浪.webp",
     traits: ["开朗", "乐观", "交流", "热情"],
     stats: { E: 86, I: 14, S: 34, N: 66, T: 24, F: 76, J: 28, P: 72 },
     bestPartners: ["海风"],
@@ -1405,7 +1405,7 @@ export const CHARACTER_DATA: CharacterCard[] = [
     title: "睡美人",
     description:
       "梦想虚幻，逃避现实。她患有严重嗜睡症，总是活在梦境中。被露娜公主治愈后开始面对现实。",
-    avatar: "/梦游者.png",
+    avatar: "/梦游者.webp",
     traits: ["梦想", "逃避", "温柔", "幻想"],
     stats: { E: 14, I: 86, S: 18, N: 82, T: 24, F: 76, J: 24, P: 76 },
     bestPartners: ["露娜公主"],
@@ -1422,7 +1422,7 @@ export const CHARACTER_DATA: CharacterCard[] = [
     title: "英雄崇拜者",
     description:
       "勇猛果敢，崇拜英雄。他是无畏天马的粉丝，梦想成为冒险家。冲动直率，有时盲目崇拜偶像。",
-    avatar: "/闪电马格努斯.png",
+    avatar: "/闪电马格努斯.webp",
     traits: ["勇猛", "果敢", "崇拜", "直率"],
     stats: { E: 82, I: 18, S: 70, N: 30, T: 66, F: 34, J: 34, P: 66 },
     bestPartners: ["无畏天马"],
@@ -1439,7 +1439,7 @@ export const CHARACTER_DATA: CharacterCard[] = [
     title: "神秘守护者",
     description:
       "智慧深邃，守护秘密。她是星璇遗产的守护者，用迷雾幻术保护宝藏。寡言神秘，但内心善良。",
-    avatar: "/迷雾鬃.png",
+    avatar: "/迷雾鬃.webp",
     traits: ["神秘", "智慧", "守护", "寡言"],
     stats: { E: 24, I: 76, S: 18, N: 82, T: 52, F: 48, J: 70, P: 30 },
     bestPartners: ["星璇"],
@@ -1456,7 +1456,7 @@ export const CHARACTER_DATA: CharacterCard[] = [
     title: "云端鼓舞者",
     description:
       "鼓舞领导，理想主义。她统一了云中城，用鼓舞的方式领导族人。理想过高，但热情感染他人。",
-    avatar: "/云耀.png",
+    avatar: "/云耀.webp",
     traits: ["鼓舞", "领导", "理想", "热情"],
     stats: { E: 86, I: 14, S: 28, N: 72, T: 34, F: 66, J: 76, P: 24 },
     bestPartners: ["塞拉斯蒂娅"],
@@ -1473,7 +1473,7 @@ export const CHARACTER_DATA: CharacterCard[] = [
     title: "海妖三姐妹之首",
     description:
       "操控领袖，野心战略。她是海妖三姐妹的领袖，用魅惑歌声吸收负面能量。冷血高效，但低估了友谊的力量，最终被击败。",
-    avatar: "/艾达琪.png",
+    avatar: "/艾达琪.webp",
     traits: ["操控", "野心", "战略", "冷血"],
     stats: { E: 90, I: 10, S: 38, N: 62, T: 86, F: 14, J: 86, P: 14 },
     bestPartners: ["艾瑞娅", "索娜塔"],
@@ -1490,7 +1490,7 @@ export const CHARACTER_DATA: CharacterCard[] = [
     title: "海妖打手",
     description:
       "火爆冲动，直接暴力。她是海妖三姐妹中最暴力的成员，负责打架和威胁。头脑简单但忠诚于艾达琪。",
-    avatar: "/艾瑞娅.png",
+    avatar: "/艾瑞娅.webp",
     traits: ["火爆", "冲动", "暴力", "忠诚"],
     stats: { E: 86, I: 14, S: 72, N: 28, T: 70, F: 30, J: 28, P: 72 },
     bestPartners: ["艾达琪"],
@@ -1507,7 +1507,7 @@ export const CHARACTER_DATA: CharacterCard[] = [
     title: "傻白甜海妖",
     description:
       "贪吃娱乐，天真单纯。她是海妖三姐妹中最没心机的，只关心美食和玩乐。被主角团感化，后来改邪归正。",
-    avatar: "/索娜塔.png",
+    avatar: "/索娜塔.webp",
     traits: ["贪吃", "天真", "娱乐", "单纯"],
     stats: { E: 90, I: 10, S: 64, N: 36, T: 24, F: 76, J: 18, P: 82 },
     bestPartners: ["艾瑞娅"],
@@ -1524,7 +1524,7 @@ export const CHARACTER_DATA: CharacterCard[] = [
     title: "改邪归正者",
     description:
       "曾经野心勃勃，后变得富有激情和领导力。她是暮光闪闪的对手，偷过王冠，但在友谊游戏中被感化。后来成为人类世界的领袖。",
-    avatar: "/余晖烁烁.png",
+    avatar: "/余晖烁烁.webp",
     traits: ["激情", "领导", "悔改", "坚强"],
     stats: { E: 82, I: 18, S: 34, N: 66, T: 46, F: 54, J: 72, P: 28 },
     bestPartners: ["暮光闪闪"],
@@ -1541,7 +1541,7 @@ export const CHARACTER_DATA: CharacterCard[] = [
     title: "伪装乖巧的野心家",
     description:
       "表面乖巧，内心独裁。她欺骗了暮光闪闪和全校师生，暗中策划统治。狡猾无情，无法信任任何人。",
-    avatar: "/可西光辉.png",
+    avatar: "/可西光辉.webp",
     traits: ["伪装", "野心", "独裁", "狡猾"],
     stats: { E: 76, I: 24, S: 66, N: 34, T: 80, F: 20, J: 90, P: 10 },
     bestPartners: ["提雷克"],
@@ -1558,7 +1558,7 @@ export const CHARACTER_DATA: CharacterCard[] = [
     title: "征服暴君",
     description:
       "傲慢暴君，征服支配。他能吸收魔法，曾囚禁四位公主。傲慢轻敌，最终被谐律元素封印。",
-    avatar: "/提雷克大王.png",
+    avatar: "/提雷克大王.webp",
     traits: ["傲慢", "暴君", "征服", "支配"],
     stats: { E: 86, I: 14, S: 44, N: 56, T: 92, F: 8, J: 96, P: 4 },
     bestPartners: ["格罗迦"],
@@ -1575,7 +1575,7 @@ export const CHARACTER_DATA: CharacterCard[] = [
     title: "力量至上者",
     description:
       "力量崇拜，奴役魔法。他是远古巨兽，能吸收魔法强化自己。野蛮专制，无魔法时脆弱。",
-    avatar: "/格罗迦.png",
+    avatar: "/格罗迦.webp",
     traits: ["力量", "奴役", "野蛮", "专制"],
     stats: { E: 82, I: 18, S: 76, N: 24, T: 86, F: 14, J: 90, P: 10 },
     bestPartners: ["提雷克"],
@@ -1592,7 +1592,7 @@ export const CHARACTER_DATA: CharacterCard[] = [
     title: "军事独裁者",
     description:
       "冷血高效，征服者。他统领风暴军团，侵略小马国。冷酷无情，过度自信导致失败。",
-    avatar: "/风暴大王.png",
+    avatar: "/风暴大王.webp",
     traits: ["冷血", "高效", "征服", "独裁"],
     stats: { E: 86, I: 14, S: 70, N: 30, T: 92, F: 8, J: 96, P: 4 },
     bestPartners: ["暴风暗影"],
@@ -1609,7 +1609,7 @@ export const CHARACTER_DATA: CharacterCard[] = [
     title: "风暴大王护卫",
     description:
       "冲动护卫，忠诚盲从。他是风暴大王的贴身护卫，执行命令从不质疑。凶悍但缺乏主见，后来被感化。",
-    avatar: "/暴风暗影.png",
+    avatar: "/暴风暗影.webp",
     traits: ["冲动", "忠诚", "盲从", "凶悍"],
     stats: { E: 82, I: 18, S: 76, N: 24, T: 70, F: 30, J: 34, P: 66 },
     bestPartners: ["风暴大王"],
@@ -1626,7 +1626,7 @@ export const CHARACTER_DATA: CharacterCard[] = [
     title: "内心矛盾的幻形灵",
     description:
       "内心矛盾，软弱善良。她是幻形灵中的异类，不愿伤害他人。背叛虫茧女王，帮助主角团。优柔寡断但心地善良。",
-    avatar: "/幻影.png",
+    avatar: "/幻影.webp",
     traits: ["矛盾", "软弱", "善良", "迷茫"],
     stats: { E: 18, I: 82, S: 28, N: 72, T: 28, F: 72, J: 34, P: 66 },
     bestPartners: ["星光熠熠"],
@@ -1643,7 +1643,7 @@ export const CHARACTER_DATA: CharacterCard[] = [
     title: "冷酷执行者",
     description:
       "冷血无情，纪律严明。他是森布拉大王的部下，使用冰雪魔法。缺乏同理心，只执行命令。",
-    avatar: "/冬雪寒霜.png",
+    avatar: "/冬雪寒霜.webp",
     traits: ["冷血", "无情", "纪律", "执行"],
     stats: { E: 28, I: 72, S: 78, N: 22, T: 86, F: 14, J: 90, P: 10 },
     bestPartners: ["夜影"],
@@ -1660,7 +1660,7 @@ export const CHARACTER_DATA: CharacterCard[] = [
     title: "暗杀专家",
     description:
       "隐秘策划，暗杀专家。他是森布拉大王的间谍，擅长暗影魔法。独来独往，高效冷酷。",
-    avatar: "/夜影.png",
+    avatar: "/夜影.webp",
     traits: ["隐秘", "策划", "冷酷", "高效"],
     stats: { E: 24, I: 76, S: 28, N: 72, T: 90, F: 10, J: 86, P: 14 },
     bestPartners: ["冬雪寒霜"],
@@ -1677,7 +1677,7 @@ export const CHARACTER_DATA: CharacterCard[] = [
     title: "幻形灵蜂巢统治者",
     description:
       "冷酷高效，寄生操控。她统领幻形灵蜂巢，以情感为食。不懂真爱，曾入侵坎特洛特。屡败屡战，野心不减。",
-    avatar: "/虫茧女王.png",
+    avatar: "/虫茧女王.webp",
     traits: ["冷酷", "高效", "寄生", "操控"],
     stats: { E: 96, I: 4, S: 38, N: 62, T: 92, F: 8, J: 96, P: 4 },
     bestPartners: ["提雷克"],
@@ -1694,7 +1694,7 @@ export const CHARACTER_DATA: CharacterCard[] = [
     title: "恐惧领主",
     description:
       "恐惧统治，阴魂不散。他统治水晶帝国，用黑水晶魔法制造恐惧。死后化为阴魂，多次复活。过于自负，最终被彻底封印。",
-    avatar: "/森布拉大王.png",
+    avatar: "/森布拉大王.webp",
     traits: ["恐惧", "统治", "阴魂", "残暴"],
     stats: { E: 82, I: 18, S: 34, N: 66, T: 96, F: 4, J: 92, P: 8 },
     bestPartners: ["提雷克"],

@@ -33,10 +33,10 @@ export default function App() {
   // Sync theme with local storage & document element body color
   useEffect(() => {
     localStorage.setItem('inner_spectrum_theme', theme);
-    if (theme === 'dark') {
-      document.body.style.backgroundColor = '#0a0b1e';
+    if (theme === "light") {
+      document.body.style.backgroundColor = "#0a0b1e";
     } else {
-      document.body.style.backgroundColor = '#faf8f5';
+      document.body.style.backgroundColor = "#faf8f5";
     }
   }, [theme]);
 
@@ -116,9 +116,9 @@ export default function App() {
         className="fixed inset-0 z-[1] pointer-events-none flex items-center justify-center overflow-hidden"
       >
         <img
-          src="/theme-bg-circle.png"
+          src="/theme-bg-circle.webp"
           alt=""
-          className="h-screen w-auto object-contain transition-transform duration-700 ease-in-out mix-blend-lighten"
+          className="h-screen w-auto object-contain transition-transform duration-700 cubic-bezier(0.2, 0, 1, 0.8) mix-blend-lighten"
           style={{ transform: `rotate(${bgRotation}deg)` }}
         />
       </div>
