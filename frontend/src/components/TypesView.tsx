@@ -270,14 +270,14 @@ export default function TypesView({ theme, selectedMbti, setSelectedMbti, userMb
       <div className="max-w-4xl mx-auto text-center space-y-4">
         <div className="inline-flex items-center space-x-2 px-3 py-1.5 rounded-full border border-cyan-500/20 bg-cyan-500/5 text-cyan-400 text-xs font-bold leading-none select-none animate-pulse">
           <Database className="w-3.5 h-3.5" />
-          <span>星轨共鸣 · 同步加载中</span>
+          <span>数据同步加载中</span>
         </div>
         <h1
           className={`text-4xl md:text-5xl font-black tracking-tight ${
             isDark ? "text-white" : "text-stone-900"
           }`}
         >
-          宇宙共鸣 角色目录
+          角色目录
         </h1>
         <p
           className={`text-base md:text-lg max-w-2xl mx-auto leading-relaxed ${
@@ -604,7 +604,7 @@ export default function TypesView({ theme, selectedMbti, setSelectedMbti, userMb
                   <h2
                     className={`text-2xl font-black ${isDark ? "text-white" : "text-stone-900"}`}
                   >
-                    特定谱系共振人物 / Resonant Characters Group
+                    小马角色 / Resonant Characters Group
                   </h2>
                   <span
                     className={`text-xs ml-2 px-2 py-0.5 rounded-full font-bold ${
@@ -785,7 +785,7 @@ export default function TypesView({ theme, selectedMbti, setSelectedMbti, userMb
                 ) : (
                   <div className="space-y-1.5 text-center text-stone-500 pb-4">
                     <p className="text-[11px] font-black uppercase tracking-widest">
-                      星空尽头：所有宇宙频段角色均已对齐
+                      到底啦
                     </p>
                   </div>
                 )}

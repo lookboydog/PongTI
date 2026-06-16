@@ -73,6 +73,43 @@ const PRESET_COMMENTS: Comment[] = [
   }
 ];
 
+const LIKED_COMMENTS_KEY = 'inner_spectrum_liked_comments';
+const LIKED_REPLIES_KEY = 'inner_spectrum_liked_replies';
+
+function loadLikedIds(key: string): Set<string> {
+  try {
+    const raw = localStorage.getItem(key);
+    if (!raw) return new Set();
+    const parsed = JSON.parse(raw);
+    return Array.isArray(parsed) ? new Set(parsed) : new Set();
+  } catch {
+    return new Set();
+  }
+}
+
+function saveLikedIds(key: string, ids: Set<string>) {
+  localStorage.setItem(key, JSON.stringify([...ids]));
+}
+
+function applyLocalLikeState(comments: Comment[]): Comment[] {
+  const likedComments = loadLikedIds(LIKED_COMMENTS_KEY);
+  const likedReplies = loadLikedIds(LIKED_REPLIES_KEY);
+
+  return comments.map((comment) => ({
+    ...comment,
+    hasLiked: likedComments.has(comment.id),
+    replies: comment.replies?.map((reply) => ({
+      ...reply,
+      hasLiked: likedReplies.has(reply.id),
+    })),
+  }));
+}
+
+interface LikeActionResult {
+  liked: boolean;
+  likes: number;
+}
+
 export default function CommentsView({ theme, authUser, userMbtiTag, onNavigateToAuth }: CommentsViewProps) {
   const isDark = theme === 'dark';
   const [comments, setComments] = useState<Comment[]>([]);
@@ -106,7 +143,12 @@ export default function CommentsView({ theme, authUser, userMbtiTag, onNavigateT
             const cloudComments = await res.json();
             if (Array.isArray(cloudComments)) {
               setComments(cloudComments);
-              localStorage.setItem('inner_spectrum_comments', JSON.stringify(cloudComments));
+              localStorage.setItem('inner_spectrum_comments', JSON.stringify(
+                cloudComments.map(({ hasLiked, hasStarred, replies, ...rest }) => ({
+                  ...rest,
+                  replies: replies?.map(({ hasLiked: replyLiked, ...replyRest }) => replyRest),
+                }))
+              ));
               return;
             }
           }
@@ -120,12 +162,12 @@ export default function CommentsView({ theme, authUser, userMbtiTag, onNavigateT
       const saved = localStorage.getItem('inner_spectrum_comments');
       if (saved) {
         try {
-          setComments(JSON.parse(saved));
+          setComments(applyLocalLikeState(JSON.parse(saved)));
         } catch (e) {
-          setComments(PRESET_COMMENTS);
+          setComments(applyLocalLikeState(PRESET_COMMENTS));
         }
       } else {
-        setComments(PRESET_COMMENTS);
+        setComments(applyLocalLikeState(PRESET_COMMENTS));
         localStorage.setItem('inner_spectrum_comments', JSON.stringify(PRESET_COMMENTS));
       }
     };
@@ -135,7 +177,39 @@ export default function CommentsView({ theme, authUser, userMbtiTag, onNavigateT
 
   const saveToStorage = (updatedList: Comment[]) => {
     setComments(updatedList);
-    localStorage.setItem('inner_spectrum_comments', JSON.stringify(updatedList));
+    localStorage.setItem('inner_spectrum_comments', JSON.stringify(
+      updatedList.map(({ hasLiked, hasStarred, replies, ...rest }) => ({
+        ...rest,
+        replies: replies?.map(({ hasLiked: replyLiked, ...replyRest }) => replyRest),
+      }))
+    ));
+  };
+
+  const updateCommentLike = (id: string, liked: boolean, likes: number) => {
+    setComments((prev) =>
+      prev.map((comment) =>
+        comment.id === id ? { ...comment, hasLiked: liked, likes } : comment
+      )
+    );
+  };
+
+  const updateReplyLike = (
+    commentId: string,
+    replyId: string,
+    liked: boolean,
+    likes: number
+  ) => {
+    setComments((prev) =>
+      prev.map((comment) => {
+        if (comment.id !== commentId || !comment.replies) return comment;
+        return {
+          ...comment,
+          replies: comment.replies.map((reply) =>
+            reply.id === replyId ? { ...reply, hasLiked: liked, likes } : reply
+          ),
+        };
+      })
+    );
   };
 
   const handleContentChange = (val: string) => {
@@ -198,25 +272,47 @@ export default function CommentsView({ theme, authUser, userMbtiTag, onNavigateT
   };
 
   const handleLike = async (id: string) => {
-    const updated = comments.map(c => {
+    if (!isLoggedIn) {
+      onNavigateToAuth();
+      return;
+    }
+
+    const target = comments.find((c) => c.id === id);
+    if (!target) return;
+
+    if (isApiEnabled()) {
+      try {
+        const res = await apiPost(`/api/v1/comments/${id}/like`);
+        if (!res.ok) return;
+        const data = (await res.json()) as LikeActionResult;
+        updateCommentLike(id, data.liked, data.likes);
+        return;
+      } catch (err) {
+        console.warn('Like action pending edge database replication.', err);
+        return;
+      }
+    }
+
+    const likedComments = loadLikedIds(LIKED_COMMENTS_KEY);
+    const nextLiked = !likedComments.has(id);
+    if (nextLiked) {
+      likedComments.add(id);
+    } else {
+      likedComments.delete(id);
+    }
+    saveLikedIds(LIKED_COMMENTS_KEY, likedComments);
+
+    const updated = comments.map((c) => {
       if (c.id === id) {
         return {
           ...c,
-          likes: c.hasLiked ? c.likes - 1 : c.likes + 1,
-          hasLiked: !c.hasLiked
+          likes: nextLiked ? c.likes + 1 : Math.max(0, c.likes - 1),
+          hasLiked: nextLiked,
         };
       }
       return c;
     });
     saveToStorage(updated);
-
-    if (isApiEnabled()) {
-      try {
-        await apiPost(`/api/v1/comments/${id}/like`);
-      } catch (err) {
-        console.warn('Like action pending edge database replication.', err);
-      }
-    }
   };
 
   const handleStar = async (id: string) => {
@@ -242,34 +338,53 @@ export default function CommentsView({ theme, authUser, userMbtiTag, onNavigateT
   };
 
   const handleLikeReply = async (commentId: string, replyId: string) => {
-    const updated = comments.map(c => {
+    if (!isLoggedIn) {
+      onNavigateToAuth();
+      return;
+    }
+
+    if (isApiEnabled()) {
+      try {
+        const res = await apiPost(`/api/v1/comments/${commentId}/replies/${replyId}/like`);
+        if (!res.ok) return;
+        const data = (await res.json()) as LikeActionResult;
+        updateReplyLike(commentId, replyId, data.liked, data.likes);
+        return;
+      } catch (err) {
+        console.warn('Reply like pending edge replication.', err);
+        return;
+      }
+    }
+
+    const likedReplies = loadLikedIds(LIKED_REPLIES_KEY);
+    const nextLiked = !likedReplies.has(replyId);
+    if (nextLiked) {
+      likedReplies.add(replyId);
+    } else {
+      likedReplies.delete(replyId);
+    }
+    saveLikedIds(LIKED_REPLIES_KEY, likedReplies);
+
+    const updated = comments.map((c) => {
       if (c.id === commentId && c.replies) {
-        const updatedReplies = c.replies.map(r => {
+        const updatedReplies = c.replies.map((r) => {
           if (r.id === replyId) {
             return {
               ...r,
-              likes: r.hasLiked ? (r.likes || 0) - 1 : (r.likes || 0) + 1,
-              hasLiked: !r.hasLiked
+              likes: nextLiked ? (r.likes || 0) + 1 : Math.max(0, (r.likes || 0) - 1),
+              hasLiked: nextLiked,
             };
           }
           return r;
         });
         return {
           ...c,
-          replies: updatedReplies
+          replies: updatedReplies,
         };
       }
       return c;
     });
     saveToStorage(updated);
-
-    if (isApiEnabled()) {
-      try {
-        await apiPost(`/api/v1/comments/${commentId}/replies/${replyId}/like`);
-      } catch (err) {
-        console.warn('Reply like pending edge replication.', err);
-      }
-    }
   };
 
   const handlePostReply = async (commentId: string) => {
