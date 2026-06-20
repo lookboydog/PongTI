@@ -3,7 +3,7 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { ThumbsUp, Star, Send, MessageCircle, ChevronLeft, ChevronRight, X, Heart, Sparkles } from 'lucide-react';
 import { AuthUser, ThemeMode, Comment } from '../types';
@@ -388,7 +388,7 @@ export default function CommentsView({ theme, authUser, userMbtiTag, onNavigateT
   // };
 
   // 顶部定义状态，存储每条回复的加载锁
-  const replyLikeLoading = ref<Record<string, boolean>>({});
+  const replyLikeLoading = useRef<Record<string, boolean>>({});
 
   const handleLikeReply = async (commentId: string, replyId: string) => {
     if (!isLoggedIn) {
@@ -398,22 +398,50 @@ export default function CommentsView({ theme, authUser, userMbtiTag, onNavigateT
     // 生成本条回复唯一key
     const key = `${commentId}-${replyId}`;
     // 正在加载直接拦截
-    if (replyLikeLoading.value[key]) return;
+    if (replyLikeLoading.current[key]) return;
 
     if (isApiEnabled()) {
       try {
-        replyLikeLoading.value[key] = true;
+        replyLikeLoading.current[key] = true;
         const res = await apiPost(`/api/v1/comments/${commentId}/replies/${replyId}/like`);
         if (!res.ok) return;
         const data = (await res.json()) as LikeActionResult;
         updateReplyLike(commentId, replyId, data.liked, data.likes);
+        return;
       } catch (err) {
         console.warn('Reply like pending edge replication.', err);
+        return;
       } finally {
-        // 无论成功失败，解锁
-        replyLikeLoading.value[key] = false;
+        replyLikeLoading.current[key] = false;
       }
     }
+
+    const likedReplies = loadLikedIds(LIKED_REPLIES_KEY);
+    const nextLiked = !likedReplies.has(replyId);
+    if (nextLiked) {
+      likedReplies.add(replyId);
+    } else {
+      likedReplies.delete(replyId);
+    }
+    saveLikedIds(LIKED_REPLIES_KEY, likedReplies);
+
+    const updated = comments.map((c) => {
+      if (c.id === commentId && c.replies) {
+        const updatedReplies = c.replies.map((r) => {
+          if (r.id === replyId) {
+            return {
+              ...r,
+              likes: nextLiked ? (r.likes || 0) + 1 : Math.max(0, (r.likes || 0) - 1),
+              hasLiked: nextLiked,
+            };
+          }
+          return r;
+        });
+        return { ...c, replies: updatedReplies };
+      }
+      return c;
+    });
+    saveToStorage(updated);
   }
 
 
@@ -747,36 +775,18 @@ export default function CommentsView({ theme, authUser, userMbtiTag, onNavigateT
                         {reply.content}
                       </p>
                       <div className="flex items-center space-x-4 pl-7 pt-1">
-                        {/* Like Reply */}
-
-
-                        {/* <button
+                        <button
                           onClick={() => handleLikeReply(comment.id, reply.id)}
-                          className={`flex items-center space-x-1 px-2 py-0.5 rounded transition-all hover:bg-stone-500/5 ${
-                            reply.hasLiked 
-                              ? 'text-rose-500 font-bold' 
+                          disabled={!!replyLikeLoading.current[`${comment.id}-${reply.id}`]}
+                          className={`flex items-center space-x-1 px-2 py-0.5 rounded transition-all hover:bg-stone-500/5 disabled:opacity-50 ${
+                            reply.hasLiked
+                              ? 'text-rose-500 font-bold'
                               : 'text-stone-400 hover:text-stone-200'
                           }`}
                         >
                           <Heart className={`w-3 h-3 ${reply.hasLiked ? 'fill-rose-500' : ''}`} />
                           <span className="text-[10px] font-mono">{reply.likes || 0}</span>
-                        </button> */}
-
-                     <button
-                        onClick={() => handleLikeReply(comment.id, reply.id)}
-                        disabled={replyLikeLoading[`${comment.id}-${reply.id}`]}
-                        className={`flex items-center space-x-1 px-2 py-0.5 rounded transition-all hover:bg-stone-500/5 ${
-                          reply.hasLiked 
-                            ? 'text-rose-500 font-bold' 
-                            : 'text-stone-400 hover:text-stone-200'
-                        }`}
-                      >
-                        {/* 点赞图标、数字 */}
-                      </button>
-
-
-
-
+                        </button>
 
                         {/* Reply back tool - only activate if user is registered */}
                         {isLoggedIn && (
