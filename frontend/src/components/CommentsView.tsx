@@ -641,7 +641,7 @@ export default function CommentsView({ theme, authUser, userMbtiTag, onNavigateT
               key={comment.id}
               id={comment.id}
               className={`p-6 rounded-2xl border transition-all ${
-                isDark星汉永无尽，微芒有所依。在这里留下你的型格感触，或与不同心智轨道的漫游客轻声共鸣
+                isDark
                   ? 'bg-stone-900/40 border-stone-800/80 hover:border-cyan-500/10'
                   : 'bg-white border-[#ebdcc9] shadow-[0_4px_15px_rgba(104,94,49,0.01)]'
               }`}
@@ -764,7 +764,7 @@ export default function CommentsView({ theme, authUser, userMbtiTag, onNavigateT
 
                      <button
                         onClick={() => handleLikeReply(comment.id, reply.id)}
-                        :disabled={replyLikeLoading[`${comment.id}-${reply.id}`]}
+                        disabled={replyLikeLoading[`${comment.id}-${reply.id}`]}
                         className={`flex items-center space-x-1 px-2 py-0.5 rounded transition-all hover:bg-stone-500/5 ${
                           reply.hasLiked 
                             ? 'text-rose-500 font-bold' 

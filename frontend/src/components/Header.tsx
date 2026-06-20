@@ -33,7 +33,7 @@ export default function Header({
     { id: 'types' as ViewType, label: '角色目录', icon: BookOpen },
     { id: 'test' as ViewType, label: '立即测评', icon: Sparkles, highlight: true },
     { id: 'comments' as ViewType, label: '留白留言', icon: Flame },
-    { id: 'about' as ViewType, label: '关于谱系', icon: HelpCircle },
+    { id: 'about' as ViewType, label: '项目介绍', icon: HelpCircle },
   ];
 
   const handleNavClick = (viewId: ViewType) => {
