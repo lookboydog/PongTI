@@ -337,55 +337,94 @@ export default function CommentsView({ theme, authUser, userMbtiTag, onNavigateT
     }
   };
 
+  // const handleLikeReply = async (commentId: string, replyId: string) => {
+  //   if (!isLoggedIn) {
+  //     onNavigateToAuth();
+  //     return;
+  //   }
+
+  //   if (isApiEnabled()) {
+  //     try {
+  //       const res = await apiPost(`/api/v1/comments/${commentId}/replies/${replyId}/like`);
+  //       if (!res.ok) return;
+  //       const data = (await res.json()) as LikeActionResult;
+  //       updateReplyLike(commentId, replyId, data.liked, data.likes);
+  //       return;
+  //     } catch (err) {
+  //       console.warn('Reply like pending edge replication.', err);
+  //       return;
+  //     }
+  //   }
+
+  //   const likedReplies = loadLikedIds(LIKED_REPLIES_KEY);
+  //   const nextLiked = !likedReplies.has(replyId);
+  //   if (nextLiked) {
+  //     likedReplies.add(replyId);
+  //   } else {
+  //     likedReplies.delete(replyId);
+  //   }
+  //   saveLikedIds(LIKED_REPLIES_KEY, likedReplies);
+
+  //   const updated = comments.map((c) => {
+  //     if (c.id === commentId && c.replies) {
+  //       const updatedReplies = c.replies.map((r) => {
+  //         if (r.id === replyId) {
+  //           return {
+  //             ...r,
+  //             likes: nextLiked ? (r.likes || 0) + 1 : Math.max(0, (r.likes || 0) - 1),
+  //             hasLiked: nextLiked,
+  //           };
+  //         }
+  //         return r;
+  //       });
+  //       return {
+  //         ...c,
+  //         replies: updatedReplies,
+  //       };
+  //     }
+  //     return c;
+  //   });
+  //   saveToStorage(updated);
+  // };
+
+  // 顶部定义状态，存储每条回复的加载锁
+  const replyLikeLoading = ref<Record<string, boolean>>({});
+
   const handleLikeReply = async (commentId: string, replyId: string) => {
     if (!isLoggedIn) {
       onNavigateToAuth();
       return;
     }
+    // 生成本条回复唯一key
+    const key = `${commentId}-${replyId}`;
+    // 正在加载直接拦截
+    if (replyLikeLoading.value[key]) return;
 
     if (isApiEnabled()) {
       try {
+        replyLikeLoading.value[key] = true;
         const res = await apiPost(`/api/v1/comments/${commentId}/replies/${replyId}/like`);
         if (!res.ok) return;
         const data = (await res.json()) as LikeActionResult;
         updateReplyLike(commentId, replyId, data.liked, data.likes);
-        return;
       } catch (err) {
         console.warn('Reply like pending edge replication.', err);
-        return;
+      } finally {
+        // 无论成功失败，解锁
+        replyLikeLoading.value[key] = false;
       }
     }
+  }
 
-    const likedReplies = loadLikedIds(LIKED_REPLIES_KEY);
-    const nextLiked = !likedReplies.has(replyId);
-    if (nextLiked) {
-      likedReplies.add(replyId);
-    } else {
-      likedReplies.delete(replyId);
-    }
-    saveLikedIds(LIKED_REPLIES_KEY, likedReplies);
 
-    const updated = comments.map((c) => {
-      if (c.id === commentId && c.replies) {
-        const updatedReplies = c.replies.map((r) => {
-          if (r.id === replyId) {
-            return {
-              ...r,
-              likes: nextLiked ? (r.likes || 0) + 1 : Math.max(0, (r.likes || 0) - 1),
-              hasLiked: nextLiked,
-            };
-          }
-          return r;
-        });
-        return {
-          ...c,
-          replies: updatedReplies,
-        };
-      }
-      return c;
-    });
-    saveToStorage(updated);
-  };
+
+
+
+
+
+
+
+
 
   const handlePostReply = async (commentId: string) => {
     const finalAuthor = replyAuthor.trim();
@@ -466,7 +505,7 @@ export default function CommentsView({ theme, authUser, userMbtiTag, onNavigateT
         <p className={`text-base md:text-lg max-w-xl mx-auto leading-relaxed ${
           isDark ? 'text-stone-300' : 'text-[#645c52]'
         }`}>
-          星汉永无尽，微芒有所依。在这里留下你的型格感触，或与不同心智轨道的漫游客轻声共鸣。
+          留此刻所思，存来日所盼，待岁月回首，共览旧年心意。
         </p>
       </div>
 
@@ -486,7 +525,7 @@ export default function CommentsView({ theme, authUser, userMbtiTag, onNavigateT
               请先登录后再留言
             </h3>
             <p className={`text-xs md:text-sm leading-relaxed ${isDark ? 'text-stone-300' : 'text-[#645c52]'}`}>
-              星声回音极其庄宿。为了确保每一条感悟印记均出自真实账号，留言功能仅向已登录的旅人开放。登录后系统将自动使用您的账号名称，您只需填写留言内容即可。
+              为了确保每一条感悟印记均出自真实账号，留言功能仅向已登录的旅人开放。登录后系统将自动使用您的账号名称，您只需填写留言内容即可。
             </p>
           </div>
 
@@ -515,7 +554,7 @@ export default function CommentsView({ theme, authUser, userMbtiTag, onNavigateT
         >
           <h3 className={`text-lg font-bold mb-6 flex items-center space-x-2 ${isDark ? 'text-white' : 'text-stone-850'}`}>
             <Send className="w-5 h-5 text-cyan-400" />
-            <span>书写你的星轨印记</span>
+            <span>写下此刻心意</span>
           </h3>
 
           <form onSubmit={handlePostComment} className="space-y-4">
@@ -543,12 +582,12 @@ export default function CommentsView({ theme, authUser, userMbtiTag, onNavigateT
             </div>
 
             <div className="space-y-1">
-              <label className="text-xs font-bold text-stone-400 block">感悟共鸣内容 (Content)</label>
+              <label className="text-xs font-bold text-stone-400 block">留言内容 (Content)</label>
               <textarea
                 id="comment-content-textarea"
                 required
                 rows={4}
-                placeholder="分享你做完测试后的惊喜、困惑、自我拥抱，或任何对理想谱系的诗意随笔..."
+                placeholder="分享你做完测试后的感受，也可以是对网站改进的建议..."
                 value={newContent}
                 onChange={(e) => handleContentChange(e.target.value)}
                 className={`w-full p-4 rounded-2xl border focus:outline-none transition-all ${
@@ -581,7 +620,7 @@ export default function CommentsView({ theme, authUser, userMbtiTag, onNavigateT
                 }`}
               >
                 <Send className="w-4 h-4" />
-                <span>投放星笺</span>
+                <span>发送留言</span>
               </button>
             </div>
           </form>
@@ -593,7 +632,7 @@ export default function CommentsView({ theme, authUser, userMbtiTag, onNavigateT
         <h3 className={`text-md font-mono tracking-wider font-extrabold text-stone-400  pb-3 uppercase ${
           isDark ? 'border-stone-800' : 'border-stone-100'
         }`}>
-          星声回音共鸣轴 ({comments.length} 条留言)
+          留言墙 ({comments.length} 条留言)
         </h3>
 
         <div className="space-y-6">
@@ -602,7 +641,7 @@ export default function CommentsView({ theme, authUser, userMbtiTag, onNavigateT
               key={comment.id}
               id={comment.id}
               className={`p-6 rounded-2xl border transition-all ${
-                isDark
+                isDark星汉永无尽，微芒有所依。在这里留下你的型格感触，或与不同心智轨道的漫游客轻声共鸣
                   ? 'bg-stone-900/40 border-stone-800/80 hover:border-cyan-500/10'
                   : 'bg-white border-[#ebdcc9] shadow-[0_4px_15px_rgba(104,94,49,0.01)]'
               }`}
@@ -709,7 +748,9 @@ export default function CommentsView({ theme, authUser, userMbtiTag, onNavigateT
                       </p>
                       <div className="flex items-center space-x-4 pl-7 pt-1">
                         {/* Like Reply */}
-                        <button
+
+
+                        {/* <button
                           onClick={() => handleLikeReply(comment.id, reply.id)}
                           className={`flex items-center space-x-1 px-2 py-0.5 rounded transition-all hover:bg-stone-500/5 ${
                             reply.hasLiked 
@@ -719,7 +760,23 @@ export default function CommentsView({ theme, authUser, userMbtiTag, onNavigateT
                         >
                           <Heart className={`w-3 h-3 ${reply.hasLiked ? 'fill-rose-500' : ''}`} />
                           <span className="text-[10px] font-mono">{reply.likes || 0}</span>
-                        </button>
+                        </button> */}
+
+                     <button
+                        onClick={() => handleLikeReply(comment.id, reply.id)}
+                        :disabled={replyLikeLoading[`${comment.id}-${reply.id}`]}
+                        className={`flex items-center space-x-1 px-2 py-0.5 rounded transition-all hover:bg-stone-500/5 ${
+                          reply.hasLiked 
+                            ? 'text-rose-500 font-bold' 
+                            : 'text-stone-400 hover:text-stone-200'
+                        }`}
+                      >
+                        {/* 点赞图标、数字 */}
+                      </button>
+
+
+
+
 
                         {/* Reply back tool - only activate if user is registered */}
                         {isLoggedIn && (
@@ -764,7 +821,7 @@ export default function CommentsView({ theme, authUser, userMbtiTag, onNavigateT
                             <span className="text-cyan-400 underline decoration-dotted bg-cyan-500/10 px-1.5 py-0.5 rounded">@{replyRecipient}</span>
                           </span>
                         ) : (
-                          <span>撰写共鸣回复</span>
+                          <span>编写回复</span>
                         )}
                       </span>
                       {replyRecipient && (
@@ -790,8 +847,8 @@ export default function CommentsView({ theme, authUser, userMbtiTag, onNavigateT
 
                     {/* Cosmic Quick Expression Shortcuts */}
                     <div className="flex items-center space-x-1.5 py-1 select-none flex-wrap gap-y-1">
-                      <span className="text-[10px] text-stone-500 font-bold mr-1">快捷共鸣粒子:</span>
-                      {["🌌", "✨", "🔮", "🪐", "💫", "❤️", "🎯", "🔭", "🙌"].map((emoji) => (
+                      <span className="text-[10px] text-stone-500 font-bold mr-1">快捷表情包:</span>
+                      {["😊","😄","🤣","🥰","😉","👍","👏","🤝","🙏","✌️","🤗", "🥺","😭","😢","🥲","😔", "🤔","🙄","😶","🫣","🤨 ","😋","😘","🥳","🫶","❤️","😤","😠","🤦‍♀️","😮‍💨"].map((emoji) => (
                         <button
                           key={emoji}
                           type="button"
@@ -825,7 +882,7 @@ export default function CommentsView({ theme, authUser, userMbtiTag, onNavigateT
                     <div className="flex gap-2">
                       <input
                         type="text"
-                        placeholder="在此轻声回复旅人的印记..."
+                        placeholder="回复内容"
                         value={replyText}
                         onChange={(e) => handleReplyChange(e.target.value, comment.id)}
                         onKeyDown={(e) => {

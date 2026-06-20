@@ -762,14 +762,14 @@ export default function TypesView({ theme, selectedMbti, setSelectedMbti, userMb
                         isDark ? "text-cyan-400/80" : "text-[#b3a076]"
                       }`}
                     >
-                      🪐 正在同步深空角色波段 (Retrieving Celestial Signal)...
+                      🪐 正在加载更多小马...
                     </p>
                   </div>
                 ) : visibleCount < filteredCharacters.length ? (
                   <div className="space-y-2 text-center max-w-xs">
                     <p className="text-[10px] text-stone-500 font-mono">
                       已载入 {Math.min(visibleCount, filteredCharacters.length)}{" "}
-                      / 共 {filteredCharacters.length} 位共振角色
+                      / 共 {filteredCharacters.length} 位小马
                     </p>
                     <button
                       onClick={triggerLoadMore}
@@ -800,10 +800,10 @@ export default function TypesView({ theme, selectedMbti, setSelectedMbti, userMb
             <h3
               className={`text-lg font-bold ${isDark ? "text-white" : "text-stone-800"}`}
             >
-              没有找到共振星轨的人格角色
+              没有找到相应的小马
             </h3>
             <p className="text-xs text-stone-400">
-              试试其他的玄学检索词，或者重置检索选项吧
+              试试其他的mbti检索词，或者重置检索选项吧
             </p>
             <button
               onClick={() => {
@@ -878,7 +878,7 @@ export default function TypesView({ theme, selectedMbti, setSelectedMbti, userMb
                   /* 移动端核心优化 */
                   max-h-[85vh] overflow-y-auto overscroll-contain pt-16 md:pt-6
                   w-full md:max-w-2xl rounded-t-3xl md:rounded-3xl"
-                              >
+              >
                 {/* A. Profile Row */}
                 <div className="grid grid-cols-1 md:grid-cols-10 gap-8 items-center pb-8 border-b border-stone-800/10 dark:border-stone-800/30">
                   {/* Left Column: Image (approx. 30% width) */}
@@ -954,7 +954,7 @@ export default function TypesView({ theme, selectedMbti, setSelectedMbti, userMb
                         <Database
                           className={`w-4 h-4 ${isDark ? "text-cyan-400" : "text-[#bda274]"}`}
                         />
-                        <span>星心八维能量极谱 / CELESTIAL SPECTRUM</span>
+                        <span>MBTI 类型解析报告 / CELESTIAL SPECTRUM</span>
                       </h4>
 
                       <div
@@ -1157,7 +1157,7 @@ export default function TypesView({ theme, selectedMbti, setSelectedMbti, userMb
                           <h4 className="text-[11px] font-bold tracking-wider text-stone-500 dark:text-stone-400 uppercase flex items-center space-x-1.5">
                             <Orbit className="w-4 h-4 text-rose-500" />
                             <span>
-                              金兰共鸣契合搭档 / GOLDEN COMPATIBLE PARTNERS
+                              MBTI 最佳匹配类型栏 / GOLDEN COMPATIBLE PARTNERS
                             </span>
                           </h4>
                           <div className="flex flex-wrap gap-2 font-mono">
@@ -1197,7 +1197,7 @@ export default function TypesView({ theme, selectedMbti, setSelectedMbti, userMb
                           <Flame
                             className={`w-3.5 h-3.5 ${isDark ? "text-cyan-400" : "text-[#bda274]"}`}
                           />
-                          <span>CELESTIAL FORCE / 神格星心异能</span>
+                          <span>CELESTIAL FORCE / 人格天赋板块</span>
                         </h5>
                         <p
                           className={`text-xs font-semibold leading-relaxed ${isDark ? "text-cyan-350" : "text-stone-700"}`}
@@ -1225,7 +1225,7 @@ export default function TypesView({ theme, selectedMbti, setSelectedMbti, userMb
                           <span
                             style={isDark ? { color: "#ffa1ad" } : undefined}
                           >
-                            SACRED FLAW / 谐律人格弱点考验
+                            SACRED FLAW / 性格短板
                           </span>
                         </h5>
                         <p
@@ -1242,7 +1242,9 @@ export default function TypesView({ theme, selectedMbti, setSelectedMbti, userMb
                         <div className="space-y-3">
                           <h4 className="text-[11px] font-bold tracking-wider text-stone-500 dark:text-stone-400 uppercase flex items-center space-x-1.5">
                             <CheckCircle className="w-4 h-4 text-emerald-500" />
-                            <span>谐律成长里程碑 / GROWTH MILESTONES</span>
+                            <span>
+                              人格成长进阶阶段板块 / GROWTH MILESTONES
+                            </span>
                           </h4>
                           <div className="flex flex-col space-y-2.5">
                             {activeDetailChar.milestones.map(
