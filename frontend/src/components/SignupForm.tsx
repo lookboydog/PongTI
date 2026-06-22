@@ -139,52 +139,79 @@ export default function SignupForm({
   };
 
   return (
-    <form className="flex flex-col gap-4 mt-3 w-full animate-fadeIn" onSubmit={handleSubmit}>
+    <form
+      className="flex flex-col gap-4 mt-3 w-full animate-fadeIn"
+      onSubmit={handleSubmit}
+    >
       <div className="flex flex-col gap-1.5 animate-fadeIn">
-        <label className={`text-xs font-semibold tracking-wider flex justify-between items-center px-1 ${labelClass}`}>
+        <label
+          className={`text-xs font-semibold tracking-wider flex justify-between items-center px-1 ${labelClass}`}
+        >
           <span>您的名称 NAME</span>
-          <span className="material-symbols-outlined text-[15px] opacity-65">badge</span>
+          <span className="material-symbols-outlined text-[15px] opacity-65">
+            badge
+          </span>
         </label>
-        <div className={`relative rounded-xl overflow-hidden border transition-all duration-300 w-full ${inputWrapperClass}`}>
+        <div
+          className={`relative rounded-xl overflow-hidden border transition-all duration-300 w-full ${inputWrapperClass}`}
+        >
           <input
             type="text"
             value={name}
             onChange={(e) => setName(e.target.value)}
             className="w-full bg-transparent border-none text-sm font-sans py-3.5 px-4 text-current outline-none focus:ring-0 focus:outline-none"
-            placeholder={theme === 'DARK' ? 'e.g. Voyager' : 'Your magical avatar nickname'}
+            placeholder={
+              theme === "DARK" ? "e.g. Voyager" : "Your magical avatar nickname"
+            }
           />
         </div>
       </div>
 
       <div className="flex flex-col gap-1.5">
-        <label className={`text-xs font-semibold tracking-wider flex justify-between items-center px-1 ${labelClass}`}>
+        <label
+          className={`text-xs font-semibold tracking-wider flex justify-between items-center px-1 ${labelClass}`}
+        >
           <span>邮箱地址 EMAIL</span>
-          <span className="material-symbols-outlined text-[15px] opacity-65">alternate_email</span>
+          <span className="material-symbols-outlined text-[15px] opacity-65">
+            alternate_email
+          </span>
         </label>
-        <div className={`relative rounded-xl overflow-hidden border transition-all duration-300 w-full ${inputWrapperClass}`}>
+        <div
+          className={`relative rounded-xl overflow-hidden border transition-all duration-300 w-full ${inputWrapperClass}`}
+        >
           <input
             type="email"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             className="w-full bg-transparent border-none text-sm font-sans py-3.5 px-4 text-current outline-none focus:ring-0 focus:outline-none"
-            placeholder={theme === 'DARK' ? 'username@spectrum.com' : 'traveler@mystic.com'}
+            placeholder={
+              theme === "DARK" ? "username@spectrum.com" : "traveler@mystic.com"
+            }
           />
         </div>
       </div>
 
       <div className="flex flex-col gap-1.5">
-        <label className={`text-xs font-semibold tracking-wider flex justify-between items-center px-1 ${labelClass}`}>
+        <label
+          className={`text-xs font-semibold tracking-wider flex justify-between items-center px-1 ${labelClass}`}
+        >
           <span>邮箱验证码 CODE</span>
-          <span className="material-symbols-outlined text-[15px] opacity-65">mark_email_read</span>
+          <span className="material-symbols-outlined text-[15px] opacity-65">
+            mark_email_read
+          </span>
         </label>
         <div className="flex gap-2">
-          <div className={`relative rounded-xl overflow-hidden border transition-all duration-300 flex-1 ${inputWrapperClass}`}>
+          <div
+            className={`relative rounded-xl overflow-hidden border transition-all duration-300 flex-1 ${inputWrapperClass}`}
+          >
             <input
               type="text"
               inputMode="numeric"
               maxLength={6}
               value={verificationCode}
-              onChange={(e) => setVerificationCode(e.target.value.replace(/\D/g, ''))}
+              onChange={(e) =>
+                setVerificationCode(e.target.value.replace(/\D/g, ""))
+              }
               className="w-full bg-transparent border-none text-sm font-sans py-3.5 px-4 text-current tracking-widest outline-none focus:ring-0 focus:outline-none"
               placeholder="6 位验证码"
             />
@@ -195,33 +222,49 @@ export default function SignupForm({
             onClick={handleSendCode}
             className={`shrink-0 px-4 py-3 rounded-xl text-xs font-bold border transition-all ${secondaryBtnClass} disabled:opacity-50 disabled:cursor-not-allowed`}
           >
-            {codeSending ? '发送中...' : countdown > 0 ? `${countdown}s` : '获取验证码'}
+            {codeSending
+              ? "发送中..."
+              : countdown > 0
+                ? `${countdown}s`
+                : "获取验证码"}
           </button>
         </div>
       </div>
 
       <div className="flex flex-col gap-1.5">
-        <label className={`text-xs font-semibold tracking-wider flex justify-between items-center px-1 ${labelClass}`}>
+        <label
+          className={`text-xs font-semibold tracking-wider flex justify-between items-center px-1 ${labelClass}`}
+        >
           <span>设置密码 PASSWORD</span>
-          <span className="material-symbols-outlined text-[15px] opacity-65">lock</span>
+          <span className="material-symbols-outlined text-[15px] opacity-65">
+            lock
+          </span>
         </label>
-        <div className={`relative rounded-xl overflow-hidden border transition-all duration-300 w-full ${inputWrapperClass}`}>
+        <div
+          className={`relative rounded-xl overflow-hidden border transition-all duration-300 w-full ${inputWrapperClass}`}
+        >
           <input
             type="password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
             className="w-full bg-transparent border-none text-sm font-sans py-3.5 px-4 text-current tracking-wide outline-none focus:ring-0 focus:outline-none"
-            placeholder={theme === 'DARK' ? '••••••••' : 'minimum 6 characters'}
+            placeholder={theme === "DARK" ? "••••••••" : "minimum 6 characters"}
           />
         </div>
       </div>
 
       <div className="flex flex-col gap-1.5">
-        <label className={`text-xs font-semibold tracking-wider flex justify-between items-center px-1 ${labelClass}`}>
+        <label
+          className={`text-xs font-semibold tracking-wider flex justify-between items-center px-1 ${labelClass}`}
+        >
           <span>确认密码 RE-ENTER</span>
-          <span className="material-symbols-outlined text-[15px] opacity-65">lock_reset</span>
+          <span className="material-symbols-outlined text-[15px] opacity-65">
+            lock_reset
+          </span>
         </label>
-        <div className={`relative rounded-xl overflow-hidden border transition-all duration-300 w-full ${inputWrapperClass}`}>
+        <div
+          className={`relative rounded-xl overflow-hidden border transition-all duration-300 w-full ${inputWrapperClass}`}
+        >
           <input
             type="password"
             value={confirmPassword}
@@ -240,14 +283,30 @@ export default function SignupForm({
           onChange={(e) => setAcceptTerms(e.target.checked)}
           className={`mt-0.5 rounded w-4 h-4 cursor-pointer transition-all ${checkClass}`}
         />
-        <label htmlFor="acceptTerms" className="text-xs text-slate-500 dark:text-slate-400 font-sans cursor-pointer leading-relaxed">
-          {theme === 'DARK' ? (
+        <label
+          htmlFor="acceptTerms"
+          className="text-xs text-slate-500 dark:text-slate-400 font-sans cursor-pointer leading-relaxed"
+        >
+          {theme === "DARK" ? (
             <span>
-              我同意并接受 <span className="text-[#adc6ff] underline hover:text-white">《生命光谱探索守则》</span> 与 <span className="text-[#adc6ff] underline hover:text-white">《隐私条款》</span>
+              我同意并接受{" "}
+              <span className="text-[#adc6ff] underline hover:text-white">
+                相关服务协议
+              </span>{" "}
+              与{" "}
+              <span className="text-[#adc6ff] underline hover:text-white">
+                《隐私条款》
+              </span>
             </span>
           ) : (
             <span>
-              同意并签订 <span className="text-[#685e31] font-bold underline">《生命光谱探索守则》</span> 协议文件
+              我同意并接受{" "}
+              <span className="text-[#685e31] font-bold underline">
+                相关服务协议
+              </span>与
+              <span className="text-[#adc6ff] underline hover:text-white">
+                《隐私条款》
+              </span>
             </span>
           )}
         </label>
@@ -260,11 +319,15 @@ export default function SignupForm({
           className={`cursor-pointer w-full py-4 rounded-full font-bold text-sm tracking-wider transition-all duration-300 transform hover:-translate-y-0.5 active:translate-y-0 active:scale-[0.98] flex items-center justify-center gap-2 ${btnClass}`}
         >
           {isLoading ? (
-            <span className={`w-5 h-5 border-2 rounded-full animate-spin ${theme === 'DARK' ? 'border-white border-t-transparent' : 'border-[#685e31] border-t-transparent'}`} />
+            <span
+              className={`w-5 h-5 border-2 rounded-full animate-spin ${theme === "DARK" ? "border-white border-t-transparent" : "border-[#685e31] border-t-transparent"}`}
+            />
           ) : (
             <>
               <span>立即注册 SIGN UP</span>
-              <span className="material-symbols-outlined text-[18px]">how_to_reg</span>
+              <span className="material-symbols-outlined text-[18px]">
+                how_to_reg
+              </span>
             </>
           )}
         </button>
@@ -272,10 +335,10 @@ export default function SignupForm({
 
       <div className="mt-2 text-center">
         <p className="text-xs text-slate-500 dark:text-slate-400 tracking-wide leading-relaxed">
-          已有账号?{' '}
+          已有账号?{" "}
           <button
             type="button"
-            onClick={() => onFormSwitch('LOGIN')}
+            onClick={() => onFormSwitch("LOGIN")}
             className={`cursor-pointer font-bold hover:underline bg-transparent border-none ${linkClass}`}
           >
             登入领域 SIGN IN
