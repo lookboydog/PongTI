@@ -44,7 +44,7 @@ export default function LoginForm({
     setIsLoading(true);
     try {
       const session = await loginUser({ email, password });
-      showNotification('🔮 登录成功！正在同频心灵光谱领域...', 'success');
+      showNotification('登录成功！', 'success');
       onLoginSuccess(session.user);
     } catch (err) {
       const message = err instanceof Error ? err.message : '登录失败，请稍后重试';
@@ -55,7 +55,7 @@ export default function LoginForm({
   };
 
   const handleSocialClick = (platform: string) => {
-    showNotification(`🌌 正在跳转第三方认证: ${platform}...`, 'info');
+    showNotification(`正在跳转第三方认证: ${platform}...`, 'info');
   };
 
   // Base Class Themes mapping
@@ -171,7 +171,7 @@ export default function LoginForm({
             onClick={() => onFormSwitch('SIGNUP')}
             className={`cursor-pointer font-bold hover:underline bg-transparent border-none ${linkClass}`}
           >
-            开启探索 SIGN UP
+            立刻注册 SIGN UP
           </button>
         </p>
       </div>

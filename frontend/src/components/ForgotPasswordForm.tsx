@@ -64,28 +64,41 @@ export default function ForgotPasswordForm({
     : 'text-[#685e31] hover:text-[#9c8b48]';
 
   return (
-    <form className="flex flex-col gap-5 mt-4 w-full animate-fadeIn" onSubmit={handleSubmit}>
+    <form
+      className="flex flex-col gap-5 mt-4 w-full animate-fadeIn"
+      onSubmit={handleSubmit}
+    >
       <div className="text-center px-2">
         <p className="text-xs text-slate-500 dark:text-slate-400 font-sans leading-relaxed">
-          {theme === 'DARK'
-            ? '我们将自动为您生成一封安全重置邮件，协助您取回进入内心光谱领域的物理路径。'
-            : '系统将校验您的神圣光谱邮箱，并下发重置密钥的唤醒星轨。'}
+          {theme === "DARK"
+            ? "系统将发送重置链接到你的邮箱里面，注意查收"
+            : "系统将发送重置链接到你的邮箱里面，注意查收"}
         </p>
       </div>
 
       {/* Email Input Field */}
       <div className="flex flex-col gap-1.5">
-        <label className={`text-xs font-semibold tracking-wider flex justify-between items-center px-1 ${labelClass}`}>
+        <label
+          className={`text-xs font-semibold tracking-wider flex justify-between items-center px-1 ${labelClass}`}
+        >
           <span>您的电子邮箱 ACCOUNT EMAIL</span>
-          <span className="material-symbols-outlined text-[15px] opacity-65">alternate_email</span>
+          <span className="material-symbols-outlined text-[15px] opacity-65">
+            alternate_email
+          </span>
         </label>
-        <div className={`relative rounded-xl overflow-hidden border transition-all duration-300 w-full ${inputWrapperClass}`}>
+        <div
+          className={`relative rounded-xl overflow-hidden border transition-all duration-300 w-full ${inputWrapperClass}`}
+        >
           <input
             type="email"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             className="w-full bg-transparent border-none text-sm font-sans py-4 pl-4 pr-12 text-current outline-none focus:ring-0 focus:outline-none"
-            placeholder={theme === 'DARK' ? 'username@spectrum.com' : 'Enter your email address'}
+            placeholder={
+              theme === "DARK"
+                ? "username@spectrum.com"
+                : "Enter your email address"
+            }
           />
         </div>
       </div>
@@ -98,7 +111,9 @@ export default function ForgotPasswordForm({
           className={`cursor-pointer w-full py-4 rounded-full font-bold text-sm tracking-wider transition-all duration-300 transform hover:-translate-y-0.5 active:translate-y-0 active:scale-[0.98] flex items-center justify-center gap-2 ${btnClass}`}
         >
           {isLoading ? (
-            <span className={`w-5 h-5 border-2 rounded-full animate-spin ${theme === 'DARK' ? 'border-white border-t-transparent' : 'border-[#685e31] border-t-transparent'}`} />
+            <span
+              className={`w-5 h-5 border-2 rounded-full animate-spin ${theme === "DARK" ? "border-white border-t-transparent" : "border-[#685e31] border-t-transparent"}`}
+            />
           ) : (
             <>
               <span>重置密码 SEND RESET LINK</span>
@@ -111,10 +126,10 @@ export default function ForgotPasswordForm({
       {/* Form Transition Prompt */}
       <div className="mt-3 text-center">
         <p className="text-xs text-slate-500 dark:text-slate-400 tracking-wide leading-relaxed">
-          记起密码？{' '}
+          记起密码？{" "}
           <button
             type="button"
-            onClick={() => onFormSwitch('LOGIN')}
+            onClick={() => onFormSwitch("LOGIN")}
             className={`cursor-pointer font-bold hover:underline bg-transparent border-none ${linkClass}`}
           >
             返回登入 SIGN IN
