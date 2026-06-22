@@ -46,9 +46,132 @@ export default function TestView({ theme, onFinishTest }: TestViewProps) {
     }
   };
 
-  const computeAndSubmitResults = (finalAnswers: typeof answers) => {
-    const dims = { E: 0, I: 0, S: 0, N: 0, T: 0, F: 0, J: 0, P: 0 };
+  // const computeAndSubmitResults = (finalAnswers: typeof answers) => {
+  //   const dims = { E: 0, I: 0, S: 0, N: 0, T: 0, F: 0, J: 0, P: 0 };
 
+  //   QUESTIONS.forEach((q) => {
+  //     const ans = finalAnswers[q.id];
+  //     if (ans) {
+  //       const val = ans.value as keyof typeof dims;
+  //       dims[val] += ans.score;
+  //     }
+  //   });
+
+  //   const mbtiString = [
+  //     dims.E >= dims.I ? 'E' : 'I',
+  //     dims.S >= dims.N ? 'S' : 'N',
+  //     dims.T >= dims.F ? 'T' : 'F',
+  //     dims.J >= dims.P ? 'J' : 'P'
+  //   ].join('');
+
+  //   const foundType = PERSONALITIES.find(p => p.id === mbtiString) || PERSONALITIES[0];
+
+  //   const getPercentage = (val1: number, val2: number) => {
+  //     const total = val1 + val2;
+  //     return total === 0 ? 50 : Math.round((val1 / total) * 100);
+  //   };
+
+  //   const userStats = {
+  //     E: getPercentage(dims.E, dims.I),
+  //     I: getPercentage(dims.I, dims.E),
+  //     S: getPercentage(dims.S, dims.N),
+  //     N: getPercentage(dims.N, dims.S),
+  //     T: getPercentage(dims.T, dims.F),
+  //     F: getPercentage(dims.F, dims.T),
+  //     J: getPercentage(dims.J, dims.P),
+  //     P: getPercentage(dims.P, dims.J)
+  //   };
+
+  //   const mbtiMatchedChars = CHARACTER_DATA.filter(
+  //     char => char.mbti.toUpperCase() === mbtiString.toUpperCase()
+  //   );
+
+  //   let bestMatch = CHARACTER_DATA[0];
+  //   let bestScore = -1;
+  //   let worstMatch = CHARACTER_DATA[0];
+  //   let worstScore = 999;
+
+  //   const nameHash = displayName
+  //     ? displayName.split('').reduce((acc, c) => acc + c.charCodeAt(0), 0)
+  //     : authSession?.user.id ?? Date.now();
+
+  //   CHARACTER_DATA.forEach((char) => {
+  //     const dist = Math.sqrt(
+  //       Math.pow(userStats.E - char.stats.E, 2) +
+  //       Math.pow(userStats.S - char.stats.S, 2) +
+  //       Math.pow(userStats.T - char.stats.T, 2) +
+  //       Math.pow(userStats.J - char.stats.J, 2)
+  //     );
+
+  //     const sim = Math.round(100 - (dist / 200) * 100);
+
+  //     if (sim < worstScore) {
+  //       worstScore = sim;
+  //       worstMatch = char;
+  //     }
+  //   });
+
+  //   if (mbtiMatchedChars.length > 0) {
+  //     bestMatch = mbtiMatchedChars[nameHash % mbtiMatchedChars.length];
+  //     const dist = Math.sqrt(
+  //       Math.pow(userStats.E - bestMatch.stats.E, 2) +
+  //       Math.pow(userStats.S - bestMatch.stats.S, 2) +
+  //       Math.pow(userStats.T - bestMatch.stats.T, 2) +
+  //       Math.pow(userStats.J - bestMatch.stats.J, 2)
+  //     );
+  //     bestScore = Math.min(100, Math.round(100 - (dist / 200) * 100) + 3);
+  //   } else {
+  //     CHARACTER_DATA.forEach((char) => {
+  //       const dist = Math.sqrt(
+  //         Math.pow(userStats.E - char.stats.E, 2) +
+  //         Math.pow(userStats.S - char.stats.S, 2) +
+  //         Math.pow(userStats.T - char.stats.T, 2) +
+  //         Math.pow(userStats.J - char.stats.J, 2)
+  //       );
+  //       const sim = Math.round(100 - (dist / 200) * 100);
+  //       if (sim > bestScore) {
+  //         bestScore = sim;
+  //         bestMatch = char;
+  //       }
+  //     });
+  //   }
+
+  //   onFinishTest({
+  //     mbti: mbtiString,
+  //     nickname: displayName,
+  //     typeInfo: foundType,
+  //     dimensions: dims,
+  //     matchedCharacter: bestMatch,
+  //     shadowCharacter: worstMatch,
+  //     similarityScore: bestScore
+  //   });
+
+  //   const syncTestRecord = async () => {
+  //     if (!isApiEnabled()) return;
+
+  //     try {
+  //       const recordId = `record-${Date.now()}`;
+  //       const nickname = displayName || '匿名旅人';
+  //       await apiPost('/api/v1/test-records', {
+  //         id: recordId,
+  //         user: {
+  //           id: authSession?.user.id,
+  //           nickname,
+  //           avatar_seed: nickname.substring(0, 3).toLowerCase()
+  //         },
+  //         mbti: mbtiString,
+  //         stats: userStats
+  //       });
+  //     } catch (err) {
+  //       console.warn('API Sync of test scores pending/inactive.', err);
+  //     }
+  //   };
+  //   syncTestRecord();
+  // };
+
+  const computeAndSubmitResults = (finalAnswers: typeof answers) => {
+    // 1. 计算各维度总分（8 个维度全部）
+    const dims = { E: 0, I: 0, S: 0, N: 0, T: 0, F: 0, J: 0, P: 0 };
     QUESTIONS.forEach((q) => {
       const ans = finalAnswers[q.id];
       if (ans) {
@@ -57,20 +180,23 @@ export default function TestView({ theme, onFinishTest }: TestViewProps) {
       }
     });
 
+    // 2. 根据总分判定 MBTI 类型（比较时使用 >= 偏向 E/S/T/J）
     const mbtiString = [
-      dims.E >= dims.I ? 'E' : 'I',
-      dims.S >= dims.N ? 'S' : 'N',
-      dims.T >= dims.F ? 'T' : 'F',
-      dims.J >= dims.P ? 'J' : 'P'
-    ].join('');
+      dims.E >= dims.I ? "E" : "I",
+      dims.S >= dims.N ? "S" : "N",
+      dims.T >= dims.F ? "T" : "F",
+      dims.J >= dims.P ? "J" : "P",
+    ].join("");
 
-    const foundType = PERSONALITIES.find(p => p.id === mbtiString) || PERSONALITIES[0];
+    // 3. 查找对应的 MBTI 人格描述
+    const foundType =
+      PERSONALITIES.find((p) => p.id === mbtiString) || PERSONALITIES[0];
 
+    // 4. 计算用户各维度百分比（用于显示，也作为后续匹配的依据）
     const getPercentage = (val1: number, val2: number) => {
       const total = val1 + val2;
       return total === 0 ? 50 : Math.round((val1 / total) * 100);
     };
-
     const userStats = {
       E: getPercentage(dims.E, dims.I),
       I: getPercentage(dims.I, dims.E),
@@ -79,63 +205,69 @@ export default function TestView({ theme, onFinishTest }: TestViewProps) {
       T: getPercentage(dims.T, dims.F),
       F: getPercentage(dims.F, dims.T),
       J: getPercentage(dims.J, dims.P),
-      P: getPercentage(dims.P, dims.J)
+      P: getPercentage(dims.P, dims.J),
     };
 
-    const mbtiMatchedChars = CHARACTER_DATA.filter(
-      char => char.mbti.toUpperCase() === mbtiString.toUpperCase()
-    );
-
+    // 5. 在所有角色中计算相似度（使用 8 个维度，欧氏距离）
+    // 由于每个维度都是 0-100，最大距离为 sqrt(8 * 100^2) ≈ 282.84
+    const MAX_DIST = Math.sqrt(8 * 100 * 100);
     let bestMatch = CHARACTER_DATA[0];
-    let bestScore = -1;
+    let bestSimilarity = -1;
     let worstMatch = CHARACTER_DATA[0];
-    let worstScore = 999;
-
-    const nameHash = displayName
-      ? displayName.split('').reduce((acc, c) => acc + c.charCodeAt(0), 0)
-      : authSession?.user.id ?? Date.now();
+    let worstSimilarity = 101;
 
     CHARACTER_DATA.forEach((char) => {
+      // 计算 8 维欧氏距离
       const dist = Math.sqrt(
         Math.pow(userStats.E - char.stats.E, 2) +
-        Math.pow(userStats.S - char.stats.S, 2) +
-        Math.pow(userStats.T - char.stats.T, 2) +
-        Math.pow(userStats.J - char.stats.J, 2)
+          Math.pow(userStats.I - char.stats.I, 2) +
+          Math.pow(userStats.S - char.stats.S, 2) +
+          Math.pow(userStats.N - char.stats.N, 2) +
+          Math.pow(userStats.T - char.stats.T, 2) +
+          Math.pow(userStats.F - char.stats.F, 2) +
+          Math.pow(userStats.J - char.stats.J, 2) +
+          Math.pow(userStats.P - char.stats.P, 2),
       );
 
-      const sim = Math.round(100 - (dist / 200) * 100);
+      // 将距离映射到 0-100 的相似度（距离越近，相似度越高）
+      const similarity = Math.max(
+        0,
+        Math.min(100, Math.round(100 - (dist / MAX_DIST) * 100)),
+      );
 
-      if (sim < worstScore) {
-        worstScore = sim;
+      // 最佳匹配（相似度最高）
+      if (similarity > bestSimilarity) {
+        bestSimilarity = similarity;
+        bestMatch = char;
+      }
+
+      // 最差匹配（相似度最低）
+      if (similarity < worstSimilarity) {
+        worstSimilarity = similarity;
         worstMatch = char;
       }
     });
 
-    if (mbtiMatchedChars.length > 0) {
-      bestMatch = mbtiMatchedChars[nameHash % mbtiMatchedChars.length];
-      const dist = Math.sqrt(
-        Math.pow(userStats.E - bestMatch.stats.E, 2) +
-        Math.pow(userStats.S - bestMatch.stats.S, 2) +
-        Math.pow(userStats.T - bestMatch.stats.T, 2) +
-        Math.pow(userStats.J - bestMatch.stats.J, 2)
-      );
-      bestScore = Math.min(100, Math.round(100 - (dist / 200) * 100) + 3);
-    } else {
-      CHARACTER_DATA.forEach((char) => {
-        const dist = Math.sqrt(
-          Math.pow(userStats.E - char.stats.E, 2) +
-          Math.pow(userStats.S - char.stats.S, 2) +
-          Math.pow(userStats.T - char.stats.T, 2) +
-          Math.pow(userStats.J - char.stats.J, 2)
-        );
-        const sim = Math.round(100 - (dist / 200) * 100);
-        if (sim > bestScore) {
-          bestScore = sim;
-          bestMatch = char;
-        }
-      });
-    }
+    // 6. 额外：如果用户希望优先匹配同 MBTI 类型的角色，可以在同类型中重新选择最佳
+    // 但这里为了公平，我们直接使用全局最佳（已包含所有角色）
+    // 如果想强制同类型，可取消注释以下代码（但可能会降低匹配准确度）
+    /*
+  const sameTypeChars = CHARACTER_DATA.filter(c => c.mbti === mbtiString);
+  if (sameTypeChars.length > 0) {
+    // 在同类型中再选一次最佳（使用相同的距离函数）
+    let bestInType = sameTypeChars[0];
+    let bestSimInType = -1;
+    sameTypeChars.forEach(char => {
+      const dist = ...; // 重复计算距离
+      const sim = ...
+      if (sim > bestSimInType) { bestSimInType = sim; bestInType = char; }
+    });
+    bestMatch = bestInType;
+    bestSimilarity = bestSimInType;
+  }
+  */
 
+    // 7. 提交最终结果
     onFinishTest({
       mbti: mbtiString,
       nickname: displayName,
@@ -143,32 +275,31 @@ export default function TestView({ theme, onFinishTest }: TestViewProps) {
       dimensions: dims,
       matchedCharacter: bestMatch,
       shadowCharacter: worstMatch,
-      similarityScore: bestScore
+      similarityScore: bestSimilarity,
     });
 
+    // 8. 异步同步到服务器（不变）
     const syncTestRecord = async () => {
       if (!isApiEnabled()) return;
-
       try {
         const recordId = `record-${Date.now()}`;
-        const nickname = displayName || '匿名旅人';
-        await apiPost('/api/v1/test-records', {
+        const nickname = displayName || "匿名旅人";
+        await apiPost("/api/v1/test-records", {
           id: recordId,
           user: {
             id: authSession?.user.id,
             nickname,
-            avatar_seed: nickname.substring(0, 3).toLowerCase()
+            avatar_seed: nickname.substring(0, 3).toLowerCase(),
           },
           mbti: mbtiString,
-          stats: userStats
+          stats: userStats,
         });
       } catch (err) {
-        console.warn('API Sync of test scores pending/inactive.', err);
+        console.warn("API Sync of test scores pending/inactive.", err);
       }
     };
     syncTestRecord();
   };
-
   const progressPercentage = Math.round((currentIndex / QUESTIONS.length) * 100);
 
   return (
