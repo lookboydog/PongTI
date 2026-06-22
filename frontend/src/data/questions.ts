@@ -531,17 +531,17 @@ export const QUESTIONS: Question[] = [
       {
         text: "参加一个社团活动，在团队协作中度过充实的时光",
         value: "E",
-        score: 3,
+        score: 4,
       },
       {
         text: "独自在家看书、听音乐，或者做一件需要专注的手工",
         value: "I",
-        score: 3,
+        score: 2,
       },
       {
         text: "享受完全的独处——不被打扰的安静比什么都重要",
         value: "I",
-        score: 6,
+        score: 0,
       },
     ],
   },
@@ -551,12 +551,12 @@ export const QUESTIONS: Question[] = [
     category: "EI",
     options: [
       { text: "积极发言、协调分工，推动讨论向前发展", value: "E", score: 6 },
-      { text: "认真聆听他人意见，在有想法时大方分享", value: "E", score: 3 },
-      { text: "倾向于先自己想清楚，再在必要时表达观点", value: "I", score: 3 },
+      { text: "认真聆听他人意见，在有想法时大方分享", value: "E", score: 4 },
+      { text: "倾向于先自己想清楚，再在必要时表达观点", value: "I", score: 2 },
       {
         text: "习惯独立完成任务，不太喜欢团队讨论的节奏",
         value: "I",
-        score: 6,
+        score: 0,
       },
     ],
   },
@@ -570,22 +570,22 @@ export const QUESTIONS: Question[] = [
         value: "E",
         score: 6,
       },
-      { text: "享受和朋友们的互动，但不需要成为焦点", value: "E", score: 3 },
+      { text: "享受和朋友们的互动，但不需要成为焦点", value: "E", score: 4 },
       {
         text: "待一小会儿就会觉得累，需要找个安静角落缓一缓",
         value: "I",
-        score: 3,
+        score: 2,
       },
       {
         text: "能不去就不去，觉得这类社交活动消耗远大于收获",
         value: "I",
-        score: 6,
+        score: 0,
       },
     ],
   },
   {
     id: 4,
-    text: "当你来到一座陌生的环境（比如马哈顿）时，你会：",
+    text: "当你来到一座陌生的新城市（比如马哈顿）时，你会：",
     category: "EI",
     options: [
       {
@@ -596,13 +596,13 @@ export const QUESTIONS: Question[] = [
       {
         text: "先观察环境，然后选择看起来友善的人开始交流",
         value: "E",
-        score: 3,
+        score: 4,
       },
-      { text: "倾向于等待别人先来搭话，再回应", value: "I", score: 3 },
+      { text: "倾向于等待别人先来搭话，再回应", value: "I", score: 2 },
       {
         text: "尽量保持低调，专注于自己的事情，社交并非首要",
         value: "I",
-        score: 6,
+        score: 0,
       },
     ],
   },
@@ -615,17 +615,17 @@ export const QUESTIONS: Question[] = [
       {
         text: "参加一个轻松的聚会或活动，融入欢乐的氛围",
         value: "E",
-        score: 3,
+        score: 4,
       },
       {
         text: "一个人安静地待着，回顾和反思整个过程的得失",
         value: "I",
-        score: 3,
+        score: 2,
       },
       {
         text: "独自去做一件能让自己沉浸其中的事（阅读、游戏、运动）",
         value: "I",
-        score: 6,
+        score: 0,
       },
     ],
   },
@@ -633,26 +633,26 @@ export const QUESTIONS: Question[] = [
   // ==================== SN 维度 ====================
   {
     id: 6,
-    text: "在魔法学院里学习一项新咒语(技能)时，你更偏好哪种方式？",
+    text: "在魔法学院里学习一项新咒语时，你更偏好哪种方式？",
     category: "SN",
     options: [
       { text: "按照清晰的步骤和示例，一步一步实操练习", value: "S", score: 6 },
       {
         text: "先看一遍完整的演示或教程，再自己动手尝试",
         value: "S",
-        score: 3,
+        score: 4,
       },
-      { text: "先了解背后的原理和逻辑，再考虑如何应用", value: "N", score: 3 },
+      { text: "先了解背后的原理和逻辑，再考虑如何应用", value: "N", score: 2 },
       {
         text: "喜欢先想象它最终能带来什么可能性，再倒推学习方法",
         value: "N",
-        score: 6,
+        score: 0,
       },
     ],
   },
   {
     id: 7,
-    text: "当遇到一个棘手的难题（比如怎么搭建网站）时，你更倾向于：",
+    text: "当遇到一个棘手的难题（比如农场生产计划）时，你更倾向于：",
     category: "SN",
     options: [
       {
@@ -660,12 +660,12 @@ export const QUESTIONS: Question[] = [
         value: "S",
         score: 6,
       },
-      { text: "参考类似问题的成功案例，用经验指导行动", value: "S", score: 3 },
-      { text: "试图找到问题背后的抽象规律或模型", value: "N", score: 3 },
+      { text: "参考类似问题的成功案例，用经验指导行动", value: "S", score: 4 },
+      { text: "试图找到问题背后的抽象规律或模型", value: "N", score: 2 },
       {
         text: "相信直觉，在头脑中构建多种可能性，再选择最具潜力的方向",
         value: "N",
-        score: 6,
+        score: 0,
       },
     ],
   },
@@ -675,12 +675,12 @@ export const QUESTIONS: Question[] = [
     category: "SN",
     options: [
       { text: "写实、细腻、还原生活细节的作品", value: "S", score: 6 },
-      { text: "有明确主题和故事情节的作品", value: "S", score: 3 },
-      { text: "具有象征意义、留白丰富、引发联想的作品", value: "N", score: 3 },
+      { text: "有明确主题和故事情节的作品", value: "S", score: 4 },
+      { text: "具有象征意义、留白丰富、引发联想的作品", value: "N", score: 2 },
       {
         text: "超现实、抽象、打破常规、挑战想象力的作品",
         value: "N",
-        score: 6,
+        score: 0,
       },
     ],
   },
@@ -690,12 +690,12 @@ export const QUESTIONS: Question[] = [
     category: "SN",
     options: [
       { text: "角色的具体行为、台词和情节的推进", value: "S", score: 6 },
-      { text: "故事中的细节是否合理、场景是否真实可信", value: "S", score: 3 },
-      { text: "故事传达的主题思想、象征意义和隐喻", value: "N", score: 3 },
+      { text: "故事中的细节是否合理、场景是否真实可信", value: "S", score: 4 },
+      { text: "故事传达的主题思想、象征意义和隐喻", value: "N", score: 2 },
       {
         text: "作品引发的深层思考——它让我产生了哪些新的联想和灵感",
         value: "N",
-        score: 6,
+        score: 0,
       },
     ],
   },
@@ -712,17 +712,17 @@ export const QUESTIONS: Question[] = [
       {
         text: "描述实际观察到的情况，用细节让讨论更充实",
         value: "S",
-        score: 3,
+        score: 4,
       },
       {
         text: "提出一个宏观的框架或理论，把话题引向更广的视角",
         value: "N",
-        score: 3,
+        score: 2,
       },
       {
         text: "跳出当前话题，联想到其他相关领域，带来新颖的洞见",
         value: "N",
-        score: 6,
+        score: 0,
       },
     ],
   },
@@ -741,17 +741,17 @@ export const QUESTIONS: Question[] = [
       {
         text: "给予情感上的支持，让她感到被陪伴和被接纳",
         value: "F",
-        score: 3,
+        score: 4,
       },
       {
         text: "帮她梳理逻辑，找出问题中的因果关系，建议可行的解决方案",
         value: "T",
-        score: 3,
+        score: 2,
       },
       {
         text: "直接指出她思维中的盲点，帮助她用更理性的方式看待问题",
         value: "T",
-        score: 6,
+        score: 0,
       },
     ],
   },
@@ -768,14 +768,14 @@ export const QUESTIONS: Question[] = [
       {
         text: "工作内容有意义，能帮助他人或对社会产生正向影响",
         value: "F",
-        score: 3,
+        score: 4,
       },
       {
         text: "流程清晰、标准明确，每个人的职责和评估方式都很客观",
         value: "T",
-        score: 3,
+        score: 2,
       },
-      { text: "效率优先，结果导向，公平的竞争机制", value: "T", score: 6 },
+      { text: "效率优先，结果导向，公平的竞争机制", value: "T", score: 0 },
     ],
   },
   {
@@ -791,17 +791,17 @@ export const QUESTIONS: Question[] = [
       {
         text: "保持温和的语气，尽量不让冲突影响彼此的关系",
         value: "F",
-        score: 3,
+        score: 4,
       },
       {
         text: "用事实和逻辑陈述自己的立场，清晰地指出分歧在哪里",
         value: "T",
-        score: 3,
+        score: 2,
       },
       {
         text: "直接指出对方观点中的逻辑漏洞，直到问题被澄清",
         value: "T",
-        score: 6,
+        score: 0,
       },
     ],
   },
@@ -818,14 +818,14 @@ export const QUESTIONS: Question[] = [
       {
         text: "他与人相处的方式是否让周围人感到舒适和尊重",
         value: "F",
-        score: 3,
+        score: 4,
       },
       {
         text: "他的能力是否胜任，判断是否理性、决策是否可靠",
         value: "T",
-        score: 3,
+        score: 2,
       },
-      { text: "他是否一贯坚持原则，行为和逻辑是否一致", value: "T", score: 6 },
+      { text: "他是否一贯坚持原则，行为和逻辑是否一致", value: "T", score: 0 },
     ],
   },
   {
@@ -834,9 +834,9 @@ export const QUESTIONS: Question[] = [
     category: "TF",
     options: [
       { text: "“你是一个温暖、善良、值得信赖的人”", value: "F", score: 6 },
-      { text: "“和你相处很舒服，你总能理解别人的感受”", value: "F", score: 3 },
-      { text: "“你逻辑清晰，思考问题很客观、很理性”", value: "T", score: 3 },
-      { text: "“你公正无私，总能做出最合理的判断”", value: "T", score: 6 },
+      { text: "“和你相处很舒服，你总能理解别人的感受”", value: "F", score: 4 },
+      { text: "“你逻辑清晰，思考问题很客观、很理性”", value: "T", score: 2 },
+      { text: "“你公正无私，总能做出最合理的判断”", value: "T", score: 0 },
     ],
   },
 
@@ -850,13 +850,13 @@ export const QUESTIONS: Question[] = [
       {
         text: "有一个大致的框架，知道每天要做什么，但留有余地",
         value: "J",
-        score: 3,
+        score: 4,
       },
-      { text: "只设定几个目标，具体时间和方法灵活调整", value: "P", score: 3 },
+      { text: "只设定几个目标，具体时间和方法灵活调整", value: "P", score: 2 },
       {
         text: "随性而为，根据当下的心情和灵感来决定做什么",
         value: "P",
-        score: 6,
+        score: 0,
       },
     ],
   },
@@ -873,13 +873,13 @@ export const QUESTIONS: Question[] = [
       {
         text: "先做一些调研和准备，有了明确方向后再启动",
         value: "J",
-        score: 3,
+        score: 4,
       },
-      { text: "从最喜欢的部分开始，边做边调整方向", value: "P", score: 3 },
+      { text: "从最喜欢的部分开始，边做边调整方向", value: "P", score: 2 },
       {
         text: "先自由发挥，让灵感引导创作，后期再统一整合",
         value: "P",
-        score: 6,
+        score: 0,
       },
     ],
   },
@@ -892,10 +892,10 @@ export const QUESTIONS: Question[] = [
       {
         text: "大多数规则是合理的，但也需要根据情况灵活对待",
         value: "J",
-        score: 3,
+        score: 4,
       },
-      { text: "规则时常限制创造力，能绕过就绕过", value: "P", score: 3 },
-      { text: "规则本身就有待商榷，我更相信自己的判断", value: "P", score: 6 },
+      { text: "规则时常限制创造力，能绕过就绕过", value: "P", score: 2 },
+      { text: "规则本身就有待商榷，我更相信自己的判断", value: "P", score: 0 },
     ],
   },
   {
@@ -904,9 +904,9 @@ export const QUESTIONS: Question[] = [
     category: "JP",
     options: [
       { text: "提前完成，留出充足的时间检查和优化", value: "J", score: 6 },
-      { text: "按照计划稳步推进，刚好在截止前完成", value: "J", score: 3 },
-      { text: "截止前集中精力冲刺，但通常能按时完成", value: "P", score: 3 },
-      { text: "拖到最后一刻，甚至经常需要申请延期", value: "P", score: 6 },
+      { text: "按照计划稳步推进，刚好在截止前完成", value: "J", score: 4 },
+      { text: "截止前集中精力冲刺，但通常能按时完成", value: "P", score: 2 },
+      { text: "拖到最后一刻，甚至经常需要申请延期", value: "P", score: 0 },
     ],
   },
   {
@@ -919,16 +919,16 @@ export const QUESTIONS: Question[] = [
         value: "J",
         score: 6,
       },
-      { text: "有明确目标但允许一定灵活度的工作方式", value: "J", score: 3 },
+      { text: "有明确目标但允许一定灵活度的工作方式", value: "J", score: 4 },
       {
         text: "多项目并行、经常有变化和新鲜挑战的动态环境",
         value: "P",
-        score: 3,
+        score: 2,
       },
       {
         text: "完全开放、自由度高、没有固定流程和约束的创意环境",
         value: "P",
-        score: 6,
+        score: 0,
       },
     ],
   },
