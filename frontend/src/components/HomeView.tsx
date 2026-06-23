@@ -5,7 +5,7 @@
 
 import React from 'react';
 import { Sparkles, ArrowRight, Heart, GraduationCap, Zap, Stars, TrendingUp, Users, Activity } from 'lucide-react';
-import { ThemeMode, ViewType } from '../types';
+import { ThemeMode, ViewType, Comment } from '../types';
 import { PERSONALITIES } from '../data/personalities';
 import { apiGet, apiPost, isApiEnabled } from '../api/client';
 
@@ -23,6 +23,76 @@ function formatVisitCount(value: number): string {
   return value.toLocaleString('zh-CN');
 }
 
+interface HomeTestimony {
+  id: string;
+  author: string;
+  mbti: string;
+  comment: string;
+  stars: number;
+  likes: number;
+}
+
+const FALLBACK_TESTIMONY_COMMENTS: Comment[] = [
+  {
+    id: "comment-5",
+    author: "至爱极光",
+    avatarSeed: "aurora",
+    content:
+      "竞选者 (ENFP) 哈哈！果然本心就是自带一万个鬼点子的快乐大魔王！这个界面在深色模式下太酷炫了，亮色模式下又雅致得不行。两个主题的设计质感真的是无能出其右，不虚此测！",
+    timestamp: "2026-06-03 10:05",
+    likes: 56,
+    stars: 5,
+    mbtiTag: "ENFP",
+  },
+  {
+    id: "comment-1",
+    author: "星海观测者_伽利略",
+    avatarSeed: "galileo",
+    content:
+      "在这里测出的是 INTJ 皇家建筑师。分析结果中对于‘过度苛求、容易疏离他人情感维度’的暗影描述真的非常准确。在进行学术攻关时，我确实常常忽视了身边助手和家属的真切关怀。这一份星谱，是一面照亮我内在黑暗的镜子。",
+    timestamp: "2026-06-03 14:15",
+    likes: 42,
+    stars: 5,
+    mbtiTag: "INTJ",
+  },
+];
+
+function stripCommentsForCache(comments: Comment[]) {
+  return comments.map(({ hasLiked, hasStarred, replies, ...rest }) => ({
+    ...rest,
+    replies: replies?.map(({ hasLiked: replyLiked, ...replyRest }) => replyRest),
+  }));
+}
+
+function mapCommentsToTestimonies(comments: Comment[]): HomeTestimony[] {
+  return [...comments]
+    .sort((a, b) => (b.likes || 0) - (a.likes || 0))
+    .slice(0, 2)
+    .map((c) => ({
+      id: c.id,
+      author: c.author,
+      mbti: c.mbtiTag || "未知型格",
+      comment: c.content,
+      stars: Math.min(5, Math.max(1, c.stars || 5)),
+      likes: c.likes || 0,
+    }));
+}
+
+function loadLocalComments(): Comment[] {
+  try {
+    const saved = localStorage.getItem("inner_spectrum_comments");
+    if (saved) {
+      const parsed = JSON.parse(saved);
+      if (Array.isArray(parsed) && parsed.length > 0) {
+        return parsed;
+      }
+    }
+  } catch {
+    // ignore
+  }
+  return FALLBACK_TESTIMONY_COMMENTS;
+}
+
 interface HomeViewProps {
   theme: ThemeMode;
   setActiveView: (view: ViewType) => void;
@@ -34,33 +104,33 @@ export default function HomeView({ theme, setActiveView, setSelectedMbti }: Home
 
   const pillars = [
     {
-      title: "共情沉浸 (Immersive Empathy)",
-      desc: "超越冰冷的字母符号，以神圣的友谊魔法和星轨之能呼应你最真实的潜隐内心。",
+      title: "共情沉浸 / EMPATHY",
+      desc: "帮助理解自我与他人的情感模式，在真实互动中增强共情与觉察。",
       icon: Heart,
       color: "from-pink-500/20 to-rose-500/10",
-      iconColor: "text-rose-400"
+      iconColor: "text-rose-400",
     },
     {
-      title: "成长灵感 (Growth & Inspiration)",
-      desc: "剖析自我局限后的成长阶梯，配合皇家演化里程碑，赋予追求卓越的高维演化原力。",
+      title: "成长灵感 / GROWTH & INSPIRATION",
+      desc: "超越四个字母的简单标签，揭示认知偏好背后的发展路径，激发潜能与成长。",
       icon: GraduationCap,
       color: "from-amber-500/20 to-yellow-500/10",
-      iconColor: "text-amber-400"
+      iconColor: "text-amber-400",
     },
     {
-      title: "社交契合 (Connection Dynamics)",
-      desc: "精准厘定 16 种宏观轨道的磁场交互，勾勒出跨越星宿的永恒友谊与完美伴侣拼图。",
+      title: "社交契合 / CONNECTION DYNAMICS",
+      desc: "解析性格倾向在人际关系中的表现，勾勒出更契合的互动模式与社交网络。",
       icon: Stars,
       color: "from-cyan-500/20 to-blue-500/10",
-      iconColor: "text-cyan-400"
+      iconColor: "text-cyan-400",
     },
     {
-      title: "澄澈视野 (Insight Clarity)",
-      desc: "提纯纷繁错综的气质迷雾，帮助行者在现实星轨的抉择关隘建立定力与澄澈之眼。",
+      title: "澄澈视野 / INSIGHT & CLARITY",
+      desc: "厘清 16 种人格类型的内在逻辑，提供清晰的自我认知框架与行动参考。",
       icon: Zap,
       color: "from-purple-500/20 to-indigo-500/10",
-      iconColor: "text-purple-400"
-    }
+      iconColor: "text-purple-400",
+    },
   ];
 
   const [visitStats, setVisitStats] = React.useState<VisitStats>(FALLBACK_VISIT_STATS);
@@ -160,53 +230,38 @@ export default function HomeView({ theme, setActiveView, setSelectedMbti }: Home
     }
   };
 
-  const [testimonies] = React.useState<any[]>(() => {
-    let allComments: any[] = [];
-    try {
-      const saved = localStorage.getItem('inner_spectrum_comments');
-      if (saved) {
-        allComments = JSON.parse(saved);
-      }
-    } catch {
-      allComments = [];
-    }
-    
-    if (!allComments || allComments.length === 0) {
-      allComments = [
-        {
-          id: "comment-5",
-          author: "至爱极光",
-          avatarSeed: "aurora",
-          content: "竞选者 (ENFP) 哈哈！果然本心就是自带一万个鬼点子的快乐大魔王！这个界面在深色模式下太酷炫了，亮色模式下又雅致得不行。两个主题的设计质感真的是无能出其右，不虚此测！",
-          timestamp: "2026-06-03 10:05",
-          likes: 56,
-          stars: 5,
-          mbtiTag: "ENFP"
-        },
-        {
-          id: "comment-1",
-          author: "星海观测者_伽利略",
-          avatarSeed: "galileo",
-          content: "在这里测出的是 INTJ 皇家建筑师。分析结果中对于‘过度苛求、容易疏离他人情感维度’的暗影描述真的非常准确。在进行学术攻关时，我确实常常忽视了身边助手和家属的真切关怀。这一份星谱，是一面照亮我内在黑暗的镜子。",
-          timestamp: "2026-06-03 14:15",
-          likes: 42,
-          stars: 5,
-          mbtiTag: "INTJ"
+  const [testimonies, setTestimonies] = React.useState<HomeTestimony[]>([]);
+  const [testimoniesLoading, setTestimoniesLoading] = React.useState(true);
+
+  React.useEffect(() => {
+    const fetchTestimonies = async () => {
+      if (isApiEnabled()) {
+        try {
+          const res = await apiGet("/api/v1/comments");
+          if (res.ok) {
+            const cloudComments = (await res.json()) as Comment[];
+            if (Array.isArray(cloudComments)) {
+              setTestimonies(mapCommentsToTestimonies(cloudComments));
+              localStorage.setItem(
+                "inner_spectrum_comments",
+                JSON.stringify(stripCommentsForCache(cloudComments)),
+              );
+              return;
+            }
+          }
+          console.warn("首页留言墙：后端返回异常，降级到本地数据。", res.status);
+        } catch (err) {
+          console.warn("首页留言墙：请求失败，降级到本地数据。", err);
         }
-      ];
-    }
-    
-    return [...allComments]
-      .sort((a, b) => (b.likes || 0) - (a.likes || 0))
-      .slice(0, 2)
-      .map(c => ({
-        author: c.author,
-        mbti: c.mbtiTag || '未知型格',
-        comment: c.content,
-        stars: Math.min(5, Math.max(1, c.stars || 5)),
-        likes: c.likes || 0
-      }));
-  });
+      } else {
+        console.info("VITE_API_URL 未配置，首页留言墙使用本地数据。");
+      }
+
+      setTestimonies(mapCommentsToTestimonies(loadLocalComments()));
+    };
+
+    fetchTestimonies().finally(() => setTestimoniesLoading(false));
+  }, []);
 
   const handleFeaturedClick = (id: string) => {
     setSelectedMbti(id);
@@ -465,15 +520,15 @@ export default function HomeView({ theme, setActiveView, setSelectedMbti }: Home
               isDark ? "text-white" : "text-stone-900"
             }`}
           >
-            什么是 PonyTI 谱系测评?
+            什么是 PongTI？
           </h2>
           <p
             className={`text-lg leading-relaxed ${
               isDark ? "text-stone-300" : "text-[#645c52]"
             }`}
           >
-            基于荣格心理学（MBTI
-            核心维度的延伸），融合象征主义，将晦涩的心理学符号解构为更亲民、更富启发性的生命哲学向导。
+            基于 MBTI
+            核心维度的性格分析工具，将抽象的心理学概念转化为更易理解、更富启发性的自我认知向导。
           </p>
         </div>
 
@@ -522,12 +577,13 @@ export default function HomeView({ theme, setActiveView, setSelectedMbti }: Home
                 isDark ? "text-white" : "text-stone-900"
               }`}
             >
-              16 型星辉型格解析
+              16 种人格类型
             </h2>
             <p
               className={`text-lg ${isDark ? "text-stone-400" : "text-[#645c52]"}`}
             >
-              四大精神星族（学者、外交官、卫士、开拓者）的顶峰代表，看是否有你的灵魂缩影：
+              四大群组（NT、NF、SJ、SP）中 16
+              种类型的认知功能与行为特征解析，对照自身偏好进行探索。
             </p>
           </div>
           <button
@@ -538,7 +594,7 @@ export default function HomeView({ theme, setActiveView, setSelectedMbti }: Home
                 : "bg-white/80 border-[#cbbea9] text-stone-700 hover:bg-white/100 hover:text-stone-900 "
             }`}
           >
-            <span>探索所有 16 种型格</span>
+            <span>查看全部 16 种类型 </span>
             <ArrowRight className="w-4 h-4" />
           </button>
         </div>
@@ -599,7 +655,7 @@ export default function HomeView({ theme, setActiveView, setSelectedMbti }: Home
                     config.exploreText
                   }`}
                 >
-                  <span>深入谱系原力</span>
+                  <span>对应人格小马</span>
                   <ArrowRight className="w-3.5 h-3.5 transform group-hover:translate-x-1 transition-transform" />
                 </div>
               </div>
@@ -692,9 +748,26 @@ export default function HomeView({ theme, setActiveView, setSelectedMbti }: Home
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-          {testimonies.map((item, i) => (
+          {testimoniesLoading ? (
             <div
-              key={i}
+              className={`md:col-span-2 text-center py-10 text-sm ${
+                isDark ? "text-stone-400" : "text-[#645c52]"
+              }`}
+            >
+              正在加载留言墙…
+            </div>
+          ) : testimonies.length === 0 ? (
+            <div
+              className={`md:col-span-2 text-center py-10 text-sm ${
+                isDark ? "text-stone-400" : "text-[#645c52]"
+              }`}
+            >
+              暂无留言，前往留白留言板写下第一条感受吧
+            </div>
+          ) : (
+            testimonies.map((item) => (
+            <div
+              key={item.id}
               className={`p-6 rounded-2xl border flex flex-col justify-between ${
                 isDark
                   ? "bg-[#111225]/45 border-cyan-500/10"
@@ -753,7 +826,8 @@ export default function HomeView({ theme, setActiveView, setSelectedMbti }: Home
                 </span>
               </div>
             </div>
-          ))}
+          ))
+          )}
         </div>
 
         <div className="text-center">

@@ -56,9 +56,9 @@ export default function AboutView({ theme }: AboutViewProps) {
           <p
             className={`text-sm leading-relaxed ${isDark ? "text-stone-300" : "text-[#645c52]"}`}
           >
-            UI界面是提交了上百次的promit和换了三套设计才敲定，转变前端代码还是效果没能实现。用的是Google
+            UI界面是提交了上百次的Prompt和换了三套设计才敲定，转变前端代码还是效果没能实现。用的是Google
             Stitch和Google Ai Studio
-            su一体化生成的。最后的后端代码实现是用的Antigravity + Remotion
+            su一体化生成的。最后的后端代码实现是用的Antigravity + Remotion。
           </p>
         </div>
 
@@ -78,10 +78,34 @@ export default function AboutView({ theme }: AboutViewProps) {
           <p
             className={`text-sm leading-relaxed ${isDark ? "text-stone-300" : "text-[#645c52]"}`}
           >
-            掌握一门技术从不是只靠一味的埋头苦干就能成的，它不仅仅只是需要勤奋，还需要一些资源和一些独到的见解。特别喜欢蛊中的“我们都是小人物，哭是没有用的，喊也是没人听的，只能自己坚持
-            坚持下去，直至成就伟大，脱离平凡，或者迎接自己的死亡”，与其听网上可能一行代码都没敲过的人来评价计算机，不如按照自己的想法再坚持一直走下去，亲眼看见技术"上限"的感觉，一定比整天惶恐生在"楚门的世界"的感觉更棒。
+            开发一个比较完全的网站，不仅仅需要前后端那么简单，还需要UI设计师，数据库工程师DBA，运维工程师等等。对于要短期设计做出一个供全校访问的有功能的网站来说，我一个人的能力是无法实现的，所有我借助了ai来替代相应的"同事"协助我一起完成一份ai作品。尽管一份错误的含糊的Prompt会让他们走很多弯路，但现在"我们"依旧是正常上线初步完成了这份作品。
           </p>
         </div>
+      </section>
+
+      {/* 感谢人员 */}
+      <section
+        id="about-roadmap"
+        className={`p-6 md:p-8 rounded-3xl border ${
+          isDark
+            ? "bg-[#111225]/45 border-cyan-500/15"
+            : "bg-white border-[#ebdcc9]/80 shadow-inner"
+        }`}
+      >
+        <h3
+          className={`text-lg font-extrabold mb-6 flex items-center space-x-2 ${isDark ? "text-white" : "text-stone-850"}`}
+        >
+          <span>感谢人员</span>
+        </h3>
+        衷心感谢:
+        <p>文学学社社长(后期活动的宣传)</p>
+        <p>计算机协会会长(活动海报的制作)</p>
+        <p>Google Stitch(UI设计师),</p>
+        <p>chatgpt(图片素材生成),</p>
+        <p>Google Ai Studio(前端工程师), </p>
+        <p>Opus4.6(后端工程师),</p>
+        <p>doubao-seed-2-1-pro-260628(数据库工程师),</p>
+        <p>deepseek v4(提供mbti测试题目)等</p>
       </section>
 
       {/* 3. Detailed timeline card */}
@@ -121,6 +145,11 @@ export default function AboutView({ theme }: AboutViewProps) {
               tag: "v2.0.1 (2026.6.20)",
               title: "后期的更新和维护",
               desc: "这个项目85%是由ai主导完成的，可以看出react的语法比vue更受ai的青睐。后续上手完react后，会尝试加入一些新的功能，比如账号信息的自定义，还有很多人期待的小马头像，回复的设计表情包等。",
+            },
+            {
+              tag: "v2.0.1 (2026.6.22)",
+              title: "邮箱验证码的更新",
+              desc: "验证处的图片只能用线上图床，也是服了",
             },
           ].map((item, idx) => (
             <div key={idx} className="flex space-x-4 items-start">

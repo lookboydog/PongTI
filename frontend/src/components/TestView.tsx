@@ -171,6 +171,7 @@ export default function TestView({ theme, onFinishTest }: TestViewProps) {
 
   const computeAndSubmitResults = (finalAnswers: typeof answers) => {
     // 1. 计算各维度总分（8 个维度全部）
+
     const dims = { E: 0, I: 0, S: 0, N: 0, T: 0, F: 0, J: 0, P: 0 };
     QUESTIONS.forEach((q) => {
       const ans = finalAnswers[q.id];
@@ -179,6 +180,12 @@ export default function TestView({ theme, onFinishTest }: TestViewProps) {
         dims[val] += ans.score;
       }
     });
+
+    console.log("=== 原始 dims 得分 ===");
+    console.log("E:", dims.E, "I:", dims.I);
+    console.log("S:", dims.S, "N:", dims.N);
+    console.log("T:", dims.T, "F:", dims.F);
+    console.log("J:", dims.J, "P:", dims.P);
 
     // 2. 根据总分判定 MBTI 类型（比较时使用 >= 偏向 E/S/T/J）
     const mbtiString = [
@@ -207,6 +214,9 @@ export default function TestView({ theme, onFinishTest }: TestViewProps) {
       J: getPercentage(dims.J, dims.P),
       P: getPercentage(dims.P, dims.J),
     };
+
+    console.log("=== 用户百分比 (userStats) ===");
+    console.log(userStats);
 
     // 5. 在所有角色中计算相似度（使用 8 个维度，欧氏距离）
     // 由于每个维度都是 0-100，最大距离为 sqrt(8 * 100^2) ≈ 282.84
@@ -251,21 +261,49 @@ export default function TestView({ theme, onFinishTest }: TestViewProps) {
     // 6. 额外：如果用户希望优先匹配同 MBTI 类型的角色，可以在同类型中重新选择最佳
     // 但这里为了公平，我们直接使用全局最佳（已包含所有角色）
     // 如果想强制同类型，可取消注释以下代码（但可能会降低匹配准确度）
-    /*
-  const sameTypeChars = CHARACTER_DATA.filter(c => c.mbti === mbtiString);
-  if (sameTypeChars.length > 0) {
-    // 在同类型中再选一次最佳（使用相同的距离函数）
-    let bestInType = sameTypeChars[0];
-    let bestSimInType = -1;
-    sameTypeChars.forEach(char => {
-      const dist = ...; // 重复计算距离
-      const sim = ...
-      if (sim > bestSimInType) { bestSimInType = sim; bestInType = char; }
-    });
-    bestMatch = bestInType;
-    bestSimilarity = bestSimInType;
-  }
-  */
+
+    // const sameTypeChars = CHARACTER_DATA.filter(c => c.mbti === mbtiString);
+    // if (sameTypeChars.length > 0) {
+    //   // 在同类型中再选一次最佳（使用相同的距离函数）
+    //   let bestInType = sameTypeChars[0];
+    //   let bestSimInType = -1;
+    //   sameTypeChars.forEach(char => {
+    //     const dist = ...; // 重复计算距离
+    //     const sim = ...
+    //     if (sim > bestSimInType) { bestSimInType = sim; bestInType = char; }
+    //   });
+    //   bestMatch = bestInType;
+    //   bestSimilarity = bestSimInType;
+    // }
+    // 6. 额外：如果用户希望优先匹配同 MBTI 类型的角色，可以在同类型中重新选择最佳
+    const sameTypeChars = CHARACTER_DATA.filter((c) => c.mbti === mbtiString);
+    if (sameTypeChars.length > 0) {
+      // 在同类型中再选一次最佳（使用相同的距离函数）
+      let bestInType = sameTypeChars[0];
+      let bestSimInType = -1;
+      sameTypeChars.forEach((char) => {
+        const dist = Math.sqrt(
+          Math.pow(userStats.E - char.stats.E, 2) +
+            Math.pow(userStats.I - char.stats.I, 2) +
+            Math.pow(userStats.S - char.stats.S, 2) +
+            Math.pow(userStats.N - char.stats.N, 2) +
+            Math.pow(userStats.T - char.stats.T, 2) +
+            Math.pow(userStats.F - char.stats.F, 2) +
+            Math.pow(userStats.J - char.stats.J, 2) +
+            Math.pow(userStats.P - char.stats.P, 2),
+        );
+        const sim = Math.max(
+          0,
+          Math.min(100, Math.round(100 - (dist / MAX_DIST) * 100)),
+        );
+        if (sim > bestSimInType) {
+          bestSimInType = sim;
+          bestInType = char;
+        }
+      });
+      bestMatch = bestInType;
+      bestSimilarity = bestSimInType;
+    }
 
     // 7. 提交最终结果
     onFinishTest({
@@ -299,7 +337,7 @@ export default function TestView({ theme, onFinishTest }: TestViewProps) {
       }
     };
     syncTestRecord();
-  };
+  };;;;
   const progressPercentage = Math.round((currentIndex / QUESTIONS.length) * 100);
 
   return (

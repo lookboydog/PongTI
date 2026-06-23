@@ -219,7 +219,8 @@ export default function App() {
                 </span>
               </div>
               <p className="text-xs leading-relaxed max-w-sm">
-                发现与记录心智星图交汇的独立心理学测评平台。不含强迫判定，仅呈现优雅的个性倾向投影。
+                基于 MBTI
+                框架的心理学测评工具，用于探索和记录个体的认知偏好与性格倾向。提供客观、非评判的维度光谱呈现，帮助用户理解自身的心智模式。
               </p>
               {/* 标红区域：小马宝莉二创免责声明 */}
               <p className="text-[10px] leading-relaxed max-w-sm opacity-70">
@@ -271,6 +272,12 @@ export default function App() {
               <p>&copy; {new Date().getFullYear()} PonyTI SPECULUM.</p>
               <p className="text-[10px] font-mono select-none tracking-widest opacity-80 uppercase">
                 MADE IN THE CELESTIAL ORBIT
+              </p>
+              <p className="text-[10px] font-mono select-none tracking-widest opacity-80 uppercase">
+                Association : 武工职计算机协会 文学社
+              </p>
+              <p className="text-[10px] font-mono select-none tracking-widest opacity-80 uppercase">
+                Activity Organizer : lookboy-dog
               </p>
             </div>
           </div>

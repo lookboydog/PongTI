@@ -284,8 +284,8 @@ export default function TypesView({ theme, selectedMbti, setSelectedMbti, userMb
             isDark ? "text-stone-300 font-medium" : "text-[#645c52]"
           }`}
         >
-          每个人都是浩瀚星空下振荡的频段。在这里，我们用 MBTI
-          棱镜去折射宇宙星轨中那些璀璨的、鲜活的、传说中的宏大灵魂，寻找与你产生灵魂共振的宇宙回响。
+          通过 MBTI
+          类型检索角色，探索不同人格画像的认知模式与成长轨迹，找到与你契合小马的性格典范
         </p>
       </div>
 
@@ -366,21 +366,22 @@ export default function TypesView({ theme, selectedMbti, setSelectedMbti, userMb
             <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 mb-3">
               <span className="text-[10px] font-black uppercase text-stone-550 dark:text-stone-400 tracking-wider flex items-center space-x-1">
                 <Layers className="w-3.5 h-3.5" />
-                <span>星符精细过滤 / Sub-mbti Filter</span>
+                <span>人格类型索引 / TYPE INDEX</span>
               </span>
               {(activeMbtiTag !== "All" ||
                 activeGroup !== "All" ||
                 searchQuery) && (
+
                 <button
                   onClick={() => {
                     setActiveGroup("All");
                     setActiveMbtiTag("All");
                     setSearchQuery("");
                   }}
-                  className="text-[10px] text-rose-500 font-extrabold hover:underline flex items-center space-x-1 cursor-pointer self-start"
+                  className="text-[15px] text-rose-500 font-extrabold hover:underline flex items-center space-x-1 cursor-pointer self-start"
                 >
-                  <RotateCcw className="w-3 h-3" />
-                  <span>重置所有筛选</span>
+                  <RotateCcw className="w-4 h-4" />
+                  <span>重置</span>
                 </button>
               )}
             </div>
@@ -446,7 +447,7 @@ export default function TypesView({ theme, selectedMbti, setSelectedMbti, userMb
                   <h2
                     className={`text-2xl font-black ${isDark ? "text-white" : "text-stone-900"}`}
                   >
-                    16人格原型光谱 / 16 MBTI Personality Archetypes
+                    16人格原型 / 16 MBTI Personality Archetypes
                   </h2>
                   <span
                     className={`text-xs ml-2 px-2 py-0.5 rounded-full font-bold ${
@@ -583,7 +584,7 @@ export default function TypesView({ theme, selectedMbti, setSelectedMbti, userMb
                             16型原生人格
                           </span>
                           <div className="flex items-center space-x-1">
-                            <span>核对智识细节</span>
+                            <span>查看详细</span>
                             <ArrowRight className="w-3.5 h-3.5 transform group-hover:translate-x-1 transition-transform" />
                           </div>
                         </div>

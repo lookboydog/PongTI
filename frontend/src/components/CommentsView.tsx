@@ -553,7 +553,7 @@ export default function CommentsView({ theme, authUser, userMbtiTag, onNavigateT
               请先登录后再留言
             </h3>
             <p className={`text-xs md:text-sm leading-relaxed ${isDark ? 'text-stone-300' : 'text-[#645c52]'}`}>
-              为了确保每一条感悟印记均出自真实账号，留言功能仅向已登录的旅人开放。登录后系统将自动使用您的账号名称，您只需填写留言内容即可。
+              为了确保每一条留言均出自真实账号，留言功能仅向已登录的用户开放。登录后系统将自动使用您的账号名称，您只需填写留言内容即可。
             </p>
           </div>
 
